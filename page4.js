@@ -23,7 +23,7 @@ function draw(){
         p.connect(particles.slice(index));
     })
     if(bully){
-        fill(100*sin((frameCount-50)/100), 100*sin(frameCount/120), 100*sin((frameCount+50)/160), 32)
+        fill(0,0,0,32);
         circle(mx, my, 200);
     }
 }
