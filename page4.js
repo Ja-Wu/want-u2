@@ -24,7 +24,7 @@ function draw(){
     })
     if(bully){
         fill(100*sin((frameCount-50)/100), 100*sin(frameCount/120), 100*sin((frameCount+50)/160), 32)
-        circle(mx, my, 100);
+        circle(mx, my, 200);
     }
 }
 
