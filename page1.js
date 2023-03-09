@@ -14,11 +14,11 @@ function setup(){
     blue = random(250, 400);
     green = random(200, 400);
     ax = floor(random(20, 60));
-    ay = floor(random(20, 100));
+    ay = floor(random(20, 60));
     bx = floor(random(30, 80));
     by = floor(random(40, 70));
     cx = floor(random(20, 50));
-    cy = floor(random(50, 100));
+    cy = floor(random(40, 70));
     transX = windowWidth/2;
     transY = windowHeight/2;
     canvas = createCanvas(windowWidth, windowHeight);
