@@ -16,7 +16,7 @@ var b1;
 var b2;
 var g1;
 var g2;
-var alpha;
+var alphaValue;
 
 function setup() {
   curFrame = 0;
@@ -32,15 +32,15 @@ function setup() {
     let space = w1/density;
 
     if(density <= 10){
-      alpha = 124;
+      alphaValue = 124;
     } else if(density <= 20){
-      alpha = 96;
+      alphaValue = 96;
     } else if(density <= 30){
-      alpha = 64;
+      alphaValue = 64;
     } else if(density <= 40){
-      alpha = 48;
+      alphaValue = 48;
     } else {
-      alpha = 32;
+      alphaValue = 32;
     }
 
     for(var x=0; x<=w1; x+=space) {
@@ -74,7 +74,7 @@ function draw() {
           var g = map(points[i].y, 0, height, g1, g2);
           var b = map(points[i].x, 0, width, b1, b2);
 
-          fill(r, g, b, alpha);
+          fill(r, g, b, alphaValue);
 
           var angle = map(noise(points[i].x * multiply, points[i].y * multiply), 0, 1, 0, 360);
 
