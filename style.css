@@ -1,19 +1,29 @@
-h1,
-h2,
-h3,
-h4{
-    margin-bottom: 1rem;
-}
-
-h1.big_header {
+.big_header {
     padding: 10px;
     margin: 10px;
     border-top: 5px solid #fff;
     border-bottom: 5px solid #fff;
-    font-size: 10rem;
-    text-shadow: #333;
-    color: #ffffff;
+    color: #fff;
     background-color: #111;
+}
+
+.big_header h1{
+    margin: 0px;
+}
+
+.big_header h2{
+    margin: 0px;
+    color: #333;
+}
+
+@media(max-width:1920px){
+    .big_header h1{
+        font-size: calc(8vw + 2rem);
+    }
+
+    .big_header h2{
+        font-size: calc(1vw + 1rem);
+    }
 }
 
 .btn{
@@ -35,4 +45,8 @@ body{
     margin: 10;
     overflow: hidden;
     background: rgb(10, 10, 10);
+}
+
+label{
+    color: #fff;
 }

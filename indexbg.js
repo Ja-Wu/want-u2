@@ -1,44 +1,58 @@
-const Y_AXIS = 1;
-const X_AXIS = 2;
+const bubbles = [];
 let canvas;
-let b1, b2, c1, c2;
+let h;
+let speed;
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0, 0);
   canvas.style('z-index', '-1');
+  colorMode(HSB, 360, 100, 100, 100);
+  speed = 3;
 
-  // Define colors
-  b1 = color(32);
-  b2 = color(0);
-
-  noLoop();
+  h = floor(random(360));
+  for(let i=0; i<(windowWidth/50) + 5; i++){
+    bubbles.push(new Bubble());
+  }
 }
 
 function draw() {
-    // Background
-    setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-    setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+    background(0);
+    if(h < speed * 360){
+        h++;
+    } else {
+        h = 0;
+    }
+    bubbles.forEach(bubble => {
+        bubble.update();
+        bubble.draw(floor(h/speed));
+    })
 }
 
-function setGradient(x, y, w, h, c1, c2, axis) {
-    noFill();
-  
-    if (axis === Y_AXIS) {
-      // Top to bottom gradient
-      for (let i = y; i <= y + h; i++) {
-        let inter = map(i, y, y + h, 0, 1);
-        let c = lerpColor(c1, c2, inter);
-        stroke(c);
-        line(x, i, x + w, i);
-      }
-    } else if (axis === X_AXIS) {
-      // Left to right gradient
-      for (let i = x; i <= x + w; i++) {
-        let inter = map(i, x, x + w, 0, 1);
-        let c = lerpColor(c1, c2, inter);
-        stroke(c);
-        line(i, y, i, y + h);
-      }
+class Bubble{
+    constructor(){
+        this.pos = createVector(random(width), random(height));
+        this.vel = floor(random(1, 15));
+        if(this.vel > 7 && random(1) > 0.4){
+            this.vel = floor(this.vel/2);
+        }
+        this.size = random(5, 30);
     }
-  }
+
+    update(){
+        this.pos.y -= this.vel;
+        if(this.pos.y < -100){
+            this.pos = createVector(random(width), height+random(50, 250));
+            this.vel = floor(random(1, 15));
+            if(this.vel > 7 && random(1) > 0.3){
+                this.vel = floor(this.vel/2);
+            }
+            this.size = random(5, 50);
+        }
+    }
+
+    draw(h){
+        fill(h, 90, 90, 20);
+        circle(this.pos.x, this.pos.y, this.size);
+    }
+}
