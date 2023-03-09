@@ -5,13 +5,20 @@ var transY;
 let canvas;
 let red, blue, green;
 
+let ax, ay, bx, by, cx, cy;
+
 const nb_of_lines = 20;
 
 function setup(){
-    //alert("EYYY verschwinde von meiner Webseite!!!");
     red = random(200, 350);
     blue = random(250, 400);
     green = random(200, 400);
+    ax = floor(random(20, 60));
+    ay = floor(random(20, 100));
+    bx = floor(random(30, 80));
+    by = floor(random(40, 70));
+    cx = floor(random(20, 50));
+    cy = floor(random(50, 100));
     transX = windowWidth/2;
     transY = windowHeight/2;
     canvas = createCanvas(windowWidth, windowHeight);
@@ -33,7 +40,7 @@ function draw(){
         let d = 2*ys(step)
         let e = 2*xu(step)
         let f = 2*yu(step)
-        stroke(ratio*col(fr+30, red), ratio*col(fr, green), ratio*col(fr-30, blue));
+        stroke(ratio*col(fr+60, red), ratio*col(fr, green), ratio*col(fr-60, blue));
         let sizeEllipse = (3*ratio)+1
         ellipse(a, b, sizeEllipse);
         ellipse(c, d, sizeEllipse);
@@ -67,25 +74,25 @@ function col(t, val){
 
 
 function xt(t){
-    return sin(t/25)*25 + sin(t/50)*50 - cos(t/75)*80 + sin(fr/300)*100;
+    return sin(t/ax)*ax + sin(t/50)*50 - cos(t/75)*80 + sin(fr/300)*100;
 }
 
 function xs(t){
-    return -sin(t/25)*25 + sin(t/40)*70*cos(t/120) - sin(t/50)*40 + cos(fr/270)*100;
+    return -sin(t/bx)*bx + sin(t/40)*70*cos(t/120) - sin(t/50)*40 + cos(fr/270)*100;
 }
 
 function yt(t){
-    return sin(t/20)*20 + sin(t/100)*80 + 35*cos(t/25) - cos(t/35)*25;
+    return sin(t/ay)*ay + sin(t/100)*80 + 35*cos(t/25) - cos(t/35)*25;
 }
 
 function ys(t){
-    return - sin(t/50)*40 - sin(t/100)*60 + 30*cos(t/35);
+    return - sin(t/by)*by - sin(t/100)*60 + 30*cos(t/35);
 }
 
 function xu(t){
-    return -cos(t/80)*80 + sin(t/50)*50 + cos(t/100)*100;
+    return -cos(t/cx)*cx + sin(t/50)*50 + cos(t/100)*100;
 }
 
 function yu(t){
-    return -sin(t/40)*25 + cos(t/120)*80 + sin(t/60)*50
+    return -sin(t/cy)*cy + cos(t/120)*80 + sin(t/60)*50
 }
