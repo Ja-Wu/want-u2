@@ -1,5 +1,3 @@
-alert("ayyooo i didn't code anything here ... yet");
-
 const Y_AXIS = 1;
 const X_AXIS = 2;
 let canvas;
@@ -11,8 +9,8 @@ function setup() {
   canvas.style('z-index', '-1');
 
   // Define colors
-  b1 = color(32);
-  b2 = color(0);
+  b1 = color(floor(random(255)), floor(random(255)), floor(random(255)));
+  b2 = color(floor(random(255)), floor(random(255)), floor(random(255)));
 
   noLoop();
 }

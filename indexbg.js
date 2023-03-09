@@ -8,10 +8,10 @@ function setup() {
   canvas.position(0, 0);
   canvas.style('z-index', '-1');
   colorMode(HSB, 360, 100, 100, 100);
-  speed = 3;
+  speed = 4;
 
   h = floor(random(360));
-  for(let i=0; i<(windowWidth/50) + 5; i++){
+  for(let i=0; i<floor(windowWidth/60) + 5; i++){
     bubbles.push(new Bubble());
   }
 }
@@ -52,7 +52,7 @@ class Bubble{
     }
 
     draw(h){
-        fill(h, 90, 90, 20);
+        fill(h, 90, 90, 60);
         circle(this.pos.x, this.pos.y, this.size);
     }
 }
