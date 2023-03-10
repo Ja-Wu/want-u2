@@ -2,23 +2,39 @@ const Y_AXIS = 1;
 const X_AXIS = 2;
 let canvas;
 let b1, b2, c1, c2;
+let lastX, lastY
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0, 0);
   canvas.style('z-index', '-1');
+  colorMode(HSB, 360, 100, 100);
+  lastX = mouseX;
+  lastY = mouseY;
 
   // Define colors
-  b1 = color(floor(random(255)), floor(random(255)), floor(random(255)));
-  b2 = color(floor(random(255)), floor(random(255)), floor(random(255)));
+  b1 = color(floor((360*mouseX)/ windowWidth), 100, 100);
+  b2 = color(floor((360*mouseY)/ windowHeight), 100, 100);
 
-  noLoop();
+  //noLoop();
 }
 
 function draw() {
+  if(lastX != mouseX || lastY != mouseY){
+    b1 = color(floor((360*mouseX)/ windowWidth), 100, 100);
+    b2 = color(floor((360*mouseY)/ windowHeight), 100, 100);
     // Background
     setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
     setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+
+    fill(b1);
+    rect(mouseX, mouseY, 10, 20);
+    fill(b2);
+    rect(mouseX+10, mouseY, 10, 20);
+    lastX = mouseX;
+    lastY = mouseY;
+  }
+    
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {

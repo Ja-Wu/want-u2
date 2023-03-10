@@ -2,6 +2,7 @@ const bubbles = [];
 let canvas;
 let h;
 let speed;
+let isOn = true;
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
@@ -10,14 +11,14 @@ function setup() {
   colorMode(HSB, 360, 100, 100, 100);
   speed = 4;
 
-  h = floor(random(360));
+  h = floor(random(360*speed));
   for(let i=0; i<floor(windowWidth/60) + 5; i++){
     bubbles.push(new Bubble());
   }
 }
 
 function draw() {
-    background(0);
+    if(isOn){background(0)}
     if(h < speed * 360){
         h++;
     } else {
@@ -28,6 +29,15 @@ function draw() {
         bubble.draw(floor(h/speed));
     })
 }
+
+function toggleSwitch() {
+    var toggleBtn = document.getElementById("toggle");
+    if (toggleBtn.checked) {
+      isOn = false;
+    } else {
+      isOn = true;
+    }
+  }
 
 class Bubble{
     constructor(){
