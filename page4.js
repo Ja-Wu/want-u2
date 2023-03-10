@@ -6,8 +6,8 @@ function setup(){
     canvas = createCanvas(windowWidth, windowHeight);
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
-    const pLength = floor(windowHeight/40) + floor(windowWidth/40) + floor((windowHeight+windowWidth)/60);
-
+    const pLength = floor(windowHeight/60) + floor(windowWidth/24);
+    console.log(pLength);
     for(let i=0; i<pLength; i++){
         particles.push(new Particle());
     }
