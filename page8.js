@@ -10,6 +10,10 @@ oscillator.type = "sine";
 // Set the initial frequency and amplitude values
 let frequency = 400;
 let amplitude = 0.5;
+let a = Math.floor(Math.random()*7)+1;
+let b = Math.floor(Math.random()*20)+40;
+let c = Math.floor(Math.random()*40)+20;
+let d = Math.floor(Math.random()*10)+15;
 
 // Create two additional oscillator nodes for harmony
 const harmony1 = audioContext.createOscillator();
@@ -45,14 +49,14 @@ oscillator.connect(tremolo).connect(audioContext.destination);
 // Create a low-pass filter node
 const filter = audioContext.createBiquadFilter();
 filter.type = "lowpass";
-filter.frequency.setValueAtTime(1000, audioContext.currentTime);
+filter.frequency.setValueAtTime(800, audioContext.currentTime);
 
 // Connect the filter to the audio context destination
 oscillator.connect(filter).connect(audioContext.destination);
 
 // Create a reverb node
 const convolver = audioContext.createConvolver();
-const impulseResponseUrl = 'path/to/impulse/response.wav';
+const impulseResponseUrl = 'LoveLibrary.wav';
 
 // Load the impulse response audio file
 fetch(impulseResponseUrl)
@@ -68,8 +72,7 @@ oscillator.connect(convolver).connect(audioContext.destination);
 
 // Start the oscillators
 oscillator.start();
-//harmony1.start();
-//harmony2.start();
+harmony2.start();
 vibrato.start();
 
 // Animate the frequency and amplitude values over time
@@ -79,13 +82,12 @@ const animate = () => {
   const t = now * Math.PI;
 
   // Update the frequency with a sinusoidal wave
-  frequency = 400 + Math.sin(t) * 60 + Math.cos(t * 2) * 40 + Math.sin(t/2) * 100 + Math.sin(t/3)*150;
+  frequency = 120 + Math.sin(t)*b + Math.cos((a * t)/4)*c - Math.sin((a*t - 2)/2)*d;
   oscillator.frequency.setValueAtTime(frequency, now);
-  //harmony1.frequency.setValueAtTime(frequency-100, now);
-  //harmony2.frequency.setValueAtTime(frequency+100, now);
+  harmony2.frequency.setValueAtTime(frequency, now);
 
   // Update the amplitude with a triangular wave
-  amplitude = 0.5 + Math.abs(Math.sin(t*2)) * 0.5;
+  amplitude = 0.3 + Math.abs(Math.sin(t)) * 0.8;
   tremolo.gain.setValueAtTime(amplitude, now);
 
   // Schedule the next animation frame
