@@ -40,7 +40,7 @@ function draw(){
         let d = 2*ys(step)
         let e = 2*xu(step)
         let f = 2*yu(step)
-        stroke(ratio*col(fr+60, red), ratio*col(fr, green), ratio*col(fr-60, blue));
+        stroke(ratio*col(fr+50, red), ratio*col(fr, green), ratio*col(fr-50, blue));
         let sizeEllipse = (3*ratio)+1
         ellipse(a, b, sizeEllipse);
         ellipse(c, d, sizeEllipse);
