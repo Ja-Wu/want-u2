@@ -6,8 +6,10 @@ function setup(){
     canvas = createCanvas(windowWidth, windowHeight);
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
+
+    // size of particles array based on heigth and width
     const pLength = floor(windowHeight/60) + floor(windowWidth/24);
-    console.log(pLength);
+    // fill array
     for(let i=0; i<pLength; i++){
         particles.push(new Particle());
     }
@@ -20,7 +22,7 @@ function draw(){
     particles.forEach((p, index) => {
         p.update(mx, my);
         p.draw();
-        p.connect(particles.slice(index));
+        p.connect(particles.slice(index)); // connect each pair only once
     })
     if(bully){
         fill(0,0,0,32);
@@ -28,6 +30,7 @@ function draw(){
     }
 }
 
+// de-/activate bully
 function mouseClicked(){
     bully = !bully;
 }
@@ -43,19 +46,21 @@ class Particle{
         if(bully){
             const d = dist(this.pos.x, this.pos.y, mx, my);
             if(d < 100){
-                let scale = 100/d;
                 let vector = createVector(this.pos.x - mx, this.pos.y - my);
                 let velSize = Math.sqrt(this.vel.x**2 + this.vel.y**2)/d;
-                // move particle to new position:
+                // move particle to new position
+                let scale = 100/d;  // scale for unit vector
                 this.pos.x = mx + (vector.x) * scale;
                 this.pos.y = my + (vector.y) * scale;
-                // update velocity:
+                // update velocity
                 this.vel.x = vector.x * velSize;
                 this.vel.y = vector.y * velSize;
             }
         }
-        
+        // update position
         this.pos.add(this.vel);
+
+        // bounce of edges:
         if(this.pos.x < 0){
             this.pos.x = 0;
             this.vel.x *= -1;

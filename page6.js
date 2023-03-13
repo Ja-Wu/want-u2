@@ -15,8 +15,6 @@ function setup() {
   // Define colors
   b1 = color(floor((360*mouseX)/ windowWidth), 100, 100);
   b2 = color(floor((360*mouseY)/ windowHeight), 100, 100);
-
-  //noLoop();
 }
 
 function draw() {
@@ -27,6 +25,7 @@ function draw() {
     setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
     setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
 
+    // show blended colors at mouse position
     fill(b1);
     rect(mouseX, mouseY, 10, 20);
     fill(b2);

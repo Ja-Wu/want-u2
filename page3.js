@@ -1,7 +1,6 @@
 let xCor = [];
 let yCor = [];
 let col = [];
-let clicked = 0;
 
 function setup(){
     canvas = createCanvas(windowWidth, windowHeight);
@@ -27,12 +26,5 @@ function mouseClicked(){
         xCor[i] = random(0, windowWidth);
         yCor[i] = random(0, windowHeight);
         col[i] = [random(0, 255), random(0, 255), random(0, 255)];
-    }
-    if(++clicked == 20){
-        //alert("hier ist nichts");
-    } else if(clicked == 30){
-        //alert("hier is wirklich nichts");
-    } else if(clicked == 50){
-        //alert("probiere es doch mal auf Seite 2...");
     }
 }

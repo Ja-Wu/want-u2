@@ -41,6 +41,7 @@ document.querySelector('#play-button').addEventListener('click', function() {
     oscillator.frequency.setValueAtTime(Math.floor(350 * Math.pow(2, melody[i] / 10)), time2 + i * 0.25);
   }
   setTimeout(() => {gainNode.gain.value = 0;}, melody.length * 275);
+  // draw circles at tone intervalls
   for (var i = 0; i < melody.length; i++) {
     setTimeout(()=>{
       fill(random(255), random(255), random(255));
