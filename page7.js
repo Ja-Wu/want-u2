@@ -32,13 +32,13 @@ document.querySelector('#play-button').addEventListener('click', function() {
   var melody = [];
   const len = Math.floor(Math.random()*20) + 10;
   for (var i = 0; i < len; i++) {
-    melody.push(Math.floor(Math.random() * 12));
+    melody.push(Math.random());
   }
   gainNode.gain.value = 0.2;
   // play melody
   var time2 = audioContext.currentTime;
   for (var i = 0; i < melody.length; i++) {
-    oscillator.frequency.setValueAtTime(Math.floor(350 * Math.pow(2, melody[i] / 10)), time2 + i * 0.25);
+    oscillator.frequency.setValueAtTime(Math.floor(300 * Math.pow(2, melody[i])), time2 + i * 0.25);
   }
   setTimeout(() => {gainNode.gain.value = 0;}, melody.length * 275);
   // draw circles at tone intervalls

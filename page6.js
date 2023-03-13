@@ -3,6 +3,7 @@ const X_AXIS = 2;
 let canvas;
 let b1, b2, c1, c2;
 let lastX, lastY
+let vertical = false;
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
@@ -22,8 +23,14 @@ function draw() {
     b1 = color(floor((360*mouseX)/ windowWidth), 100, 100);
     b2 = color(floor((360*mouseY)/ windowHeight), 100, 100);
     // Background
-    setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-    setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+    if(vertical){
+      setGradient(0, 0, width, height/2, b1, b2, Y_AXIS);
+      setGradient(0, height/2, width, height/2, b2, b1, Y_AXIS);
+    } else {
+      setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
+      setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+    }
+    
 
     // show blended colors at mouse position
     fill(b1);
@@ -33,7 +40,11 @@ function draw() {
     lastX = mouseX;
     lastY = mouseY;
   }
-    
+}
+
+function mouseClicked(){
+  vertical = !vertical;
+  lastX++;
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {
