@@ -13,7 +13,7 @@
 
 .big_header h2{
     margin: 0px;
-    color: #333;
+    color: #666;
 }
 
 @media(max-width:1920px){
@@ -42,6 +42,14 @@
     transform: translateY(-0.1rem);
     transition: transform 150ms;
   }
+
+.random .btn,.random h3{
+  color: #2196F3;
+}
+
+.interactive .btn, .interactive h3{
+  color: #ff0000;
+}
 
 body{
     margin: 10;
