@@ -1,6 +1,25 @@
 // Define the data structures
 let processes = [];
+processes.push({ id: 1, priority: 5, arrivalTime: 0, executionTime: 10 });
+processes.push({ id: 2, priority: 3, arrivalTime: 2, executionTime: 5 });
+processes.push({ id: 3, priority: 1, arrivalTime: 5, executionTime: 8 });
+// Add more processes as needed
+
 let queues = [];
+
+queues.push([]); // Add an empty queue for the highest priority processes
+queues.push([]); // Add an empty queue for the next priority processes
+queues.push([]); // Add an empty queue for the lowest priority processes
+// Add the processes to the appropriate queues based on their priority
+processes.forEach(function(process) {
+  if (process.priority === 5) {
+    queues[0].push(process);
+  } else if (process.priority === 3) {
+    queues[1].push(process);
+  } else {
+    queues[2].push(process);
+  }
+});
 
 // Define the scheduling algorithm
 // Example FCFS scheduling algorithm

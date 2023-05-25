@@ -4,11 +4,30 @@ canvas {
     border: 1px solid #ccc;
   }
   
-  button {
+  .btn{
+    width: 60px;
+    height: 34px;
+    padding: 5px;
     margin: 10px;
-    padding: 5px 10px;
-    font-size: 16px;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #666;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 3px 3px 0 #fff;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
   }
+
+.random .btn,.random h3{
+  color: #2196F3;
+}
+
+.interactive .btn, .interactive h3{
+  color: #ff0000;
+}
 
 body{
     margin: 10;
