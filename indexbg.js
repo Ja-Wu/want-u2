@@ -33,9 +33,9 @@ function draw() {
 function toggleSwitch() {
     var toggleBtn = document.getElementById("toggle");
     if (toggleBtn.checked) {
-      isOn = false;
+        isOn = false;
     } else {
-      isOn = true;
+        isOn = true;
     }
   }
 

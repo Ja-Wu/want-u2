@@ -4,7 +4,7 @@
     border-top: 5px solid #fff;
     border-bottom: 5px solid #fff;
     color: #fff;
-    background-color: #111;
+    background-color: #111111e1;
 }
 
 .big_header h1{
@@ -27,13 +27,13 @@
 }
 
 .btn{
-    width: 60px;
-    height: 34px;
-    padding: 5px;
-    margin: 10px;
+    width: 75px;
+    height: 45px;
+    padding: 4px;
+    margin: 5px;
     border: 2px solid #fff;
     color: #fff;
-    background-color: #666;
+    background-color: #3a3a3ac1;
 }
 
 .btn:hover {
@@ -51,6 +51,14 @@
   color: #ff0000;
 }
 
+.story .btn, .story h3{
+  color: #22ff00;
+}
+
+.switch h3{
+  color: #fff;
+}
+
 body{
     margin: 10;
     overflow: hidden;
@@ -62,11 +70,11 @@ label{
 }
 
 .switch {
-    position: absolute;
+    position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin: 10px;
+    margin: 5px;
   }
   
   .switch input {
