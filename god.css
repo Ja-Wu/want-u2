@@ -1,0 +1,16 @@
+/* style.css */
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Old Mysterious Font", cursive;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  p {
+    text-align: justify;
+  }
+  
