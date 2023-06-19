@@ -14,3 +14,7 @@ body {
     text-align: justify;
   }
   
+  .font-selector {
+    text-align: center;
+    margin-top: 20px;
+  }
