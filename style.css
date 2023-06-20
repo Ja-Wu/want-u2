@@ -140,4 +140,13 @@ label{
   .slider.round:before {
     border-radius: 50%;
   }
-  
+
+  .instagram-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .logo {
+    color: #ffffff;
+  }
