@@ -61,7 +61,6 @@
 
 body{
     margin: 10;
-    /*overflow: hidden;*/
     background: rgb(10, 10, 10);
 }
 
@@ -145,8 +144,4 @@ label{
     position: fixed;
     bottom: 20px;
     right: 20px;
-  }
-
-  .logo {
-    color: #ffffff;
   }
