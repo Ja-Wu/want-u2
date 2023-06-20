@@ -6,8 +6,9 @@ let isOn = true;
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
-  canvas.position(0, 0);
-  canvas.style('z-index', '-1');
+  canvas.parent('sketch-container');
+  //canvas.position(0, 0);
+  //canvas.style('z-index', '-1');
   colorMode(HSB, 360, 100, 100, 100);
   speed = 4;
 
@@ -65,4 +66,8 @@ class Bubble{
         fill(h, 90, 90, 60);
         circle(this.pos.x, this.pos.y, this.size);
     }
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }

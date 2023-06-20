@@ -27,7 +27,7 @@
 }
 
 .btn{
-    width: 75px;
+    width: 80px;
     height: 45px;
     padding: 4px;
     margin: 5px;
@@ -61,8 +61,19 @@
 
 body{
     margin: 10;
-    overflow: hidden;
+    /*overflow: hidden;*/
     background: rgb(10, 10, 10);
+}
+
+#sketch-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+canvas {
+  display: block;
 }
 
 label{
