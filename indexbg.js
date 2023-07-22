@@ -11,8 +11,6 @@ function setup() {
   //canvas.style('z-index', '-1');
   colorMode(HSB, 360, 100, 100, 100);
   speed = random(3,5);
-  console.log(speed);
-  speed = 4;
 
   h = floor(random(360*speed));
   for(let i=0; i<floor(windowWidth/60) + 5; i++){
