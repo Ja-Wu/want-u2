@@ -10,6 +10,8 @@ function setup() {
   //canvas.position(0, 0);
   //canvas.style('z-index', '-1');
   colorMode(HSB, 360, 100, 100, 100);
+  speed = random(3,5);
+  console.log(speed);
   speed = 4;
 
   h = floor(random(360*speed));
