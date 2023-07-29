@@ -293,7 +293,8 @@ function loadChapter4() {
 function loadConclusion() {
     goToTop();
     const chapter2Content = `
-        <h2>Conclusion: A Framework for Human Flourishing: Embrace the Journey of Humanism, Skepticism, Agnosticism, and Anti-Theism</h2>
+        <h1>Conclusion</h1>
+        <h2>A Framework for Human Flourishing: Embrace the Journey of Humanism, Skepticism, Agnosticism, and Anti-Theism</h2>
         <p>
         In this exploration of humanism, skepticism, agnosticism, and anti-theism, we have embarked on a profound journey of philosophical discovery—a journey that promises to transform not only our personal lives but also the very fabric of society. As we stand at the crossroads of reason and compassion, we invite you to embrace this compelling framework that calls for a harmonious coexistence of these perspectives for the greater good of humanity.
         </p>
