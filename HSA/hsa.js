@@ -1,5 +1,21 @@
 const contentContainer = document.getElementById("chapter-content");
 
+function getQueryParameter(parameter) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(parameter);
+}
+
+function loadChapterContent() {
+    const chapterFunction = getQueryParameter('chapter');
+
+    if (chapterFunction == '0'){loadIntro();}
+    else if (chapterFunction == '1'){loadChapter1();}
+    else if (chapterFunction == '2'){loadChapter2();}
+    else if (chapterFunction == '3'){loadChapter3();}
+    else if (chapterFunction == '4'){loadChapter4();}
+    else {loadConclusion();}
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     var fontSelect = document.getElementById("font-select");
     var fontSizeSelect = document.getElementById("font-size-select");
@@ -32,8 +48,6 @@ function goToTop() {
         behavior: "smooth" // You can use "auto" or "smooth" for scrolling behavior
     });
 }
-  
-loadIntro();
 
 function loadIntro() {
     goToTop();
@@ -309,3 +323,5 @@ function loadConclusion() {
     // Update the content container with the new content
     contentContainer.innerHTML = chapter2Content;
 }
+
+window.onload = loadChapterContent();
