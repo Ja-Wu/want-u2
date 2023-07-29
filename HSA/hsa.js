@@ -52,7 +52,7 @@ function goToTop() {
 function loadIntro() {
     goToTop();
     const chapter2Content = `
-        <h2>Introduction</h2>
+        <h1>Introduction</h1>
         <p>
         In the vast tapestry of human thought and philosophical inquiry, four distinct standpoints emerge, each offering unique perspectives on existence, ethics, and our place in the universe. Humanism, skepticism, agnosticism, and anti-theism are philosophical frameworks that challenge us to reevaluate our beliefs, scrutinize the truth we hold dear, and explore the profound implications of our convictions. In this modern era of interconnectedness and information overload, understanding these concepts becomes more crucial than ever before.
         </p>
@@ -86,7 +86,8 @@ function loadChapter1() {
     goToTop();
     // Set the new content for Chapter 1
     const chapter2Content = `
-        <h2>Chapter 1: Embracing Humanism: The Ethical Compass for a Flourishing World</h2>
+        <h1>Chapter 1: Humanism</h1>
+        <h2>The Ethical Compass for a Flourishing World</h2>
         <p>
         What is Humanism?
         </p>
@@ -147,7 +148,8 @@ function loadChapter1() {
 function loadChapter2() {
     goToTop();
     const chapter2Content = `
-        <h2>Chapter 2: Embracing Skepticism: Unraveling Truth through Critical Inquiry</h2>
+        <h1>Chapter 2: Skepticism</h1>
+        <h2>Unraveling Truth through Critical Inquiry</h2>
         <p>What is Skepticism?</p>
         <p>Skepticism is a philosophical approach that encourages a questioning and critical mindset towards claims, beliefs, and knowledge. Skeptics do not accept ideas at face value but rather subject them to rigorous examination, seeking evidence and rational justification before accepting them as true. The aim of skepticism is to foster a deeper understanding of reality by scrutinizing ideas, challenging assumptions, and distinguishing between valid information and unfounded claims. </p>
         <p>How Skepticism Works:</p>
@@ -188,7 +190,8 @@ function loadChapter2() {
 function loadChapter3() {
     goToTop();
     const chapter2Content = `
-        <h2>Chapter 3: Embracing Agnosticism: Navigating the Mysteries of Gods and Reality</h2>
+        <h1>Chapter 3: Agnosticism</h1>
+        <h2>Navigating the Mysteries of Gods and Reality</h2>
         <p>What is Agnosticism?</p>
         <p>Agnosticism is a philosophical position that acknowledges the limits of human knowledge and understanding, particularly when it comes to questions about the existence of gods or the ultimate nature of reality. Agnostics recognize that some questions may lie beyond the scope of human comprehension, and as such, they adopt a humble and open-minded stance towards matters of spirituality and metaphysics.</p>
         <p>How Agnosticism Works:</p>
@@ -244,7 +247,8 @@ function loadChapter3() {
 function loadChapter4() {
     goToTop();
     const chapter2Content = `
-        <h2>Chapter 4: Embracing Anti-Theism: Challenging Organized Religion for a More Enlightened World</h2>
+        <h1>Chapter 4: Anti-Theism</h1>
+        <h2>Challenging Organized Religion for a More Enlightened World</h2>
         <p>What is Anti-Theism?</p>
         <p>Anti-Theism is a philosophical position that goes beyond atheism, as it not only lacks belief in gods but actively opposes the influence and practices of organized religion. Anti-theists critique religious institutions for their historical and contemporary roles in promoting dogma, intolerance, and societal division. While respecting individual beliefs and spirituality, anti-theism seeks to address the potential harm caused by the misuse of religious authority and advocate for a secular society that prioritizes reason and human well-being.</p>
         <p>How Anti-Theism Works:</p>
