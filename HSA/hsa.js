@@ -25,10 +25,18 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
+
+function goToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // You can use "auto" or "smooth" for scrolling behavior
+    });
+}
   
 loadIntro();
 
 function loadIntro() {
+    goToTop();
     const chapter2Content = `
         <h2>Introduction</h2>
         <p>
@@ -61,6 +69,7 @@ function loadIntro() {
 }
 
 function loadChapter1() {
+    goToTop();
     // Set the new content for Chapter 1
     const chapter2Content = `
         <h2>Chapter 1: Embracing Humanism: The Ethical Compass for a Flourishing World</h2>
@@ -113,8 +122,6 @@ function loadChapter1() {
         
         <div>
             <button class="btn" onclick="loadChapter2()">Skepticism</button>
-        </div>
-        <div>
             <button class="btn" onclick="loadIntro()">Introduction</button>
         </div>
     `;
@@ -123,19 +130,40 @@ function loadChapter1() {
     contentContainer.innerHTML = chapter2Content;
 }
 
-
 function loadChapter2() {
-    // Set the new content for Chapter 2
+    goToTop();
     const chapter2Content = `
-        <h2>Introduction</h2>
-        <p>text for Introduction</p>
-        <p>more text for Introduction</p>
-        <p>even more text for Introduction</p>
+        <h2>Chapter 2: Embracing Skepticism: Unraveling Truth through Critical Inquiry</h2>
+        <p>What is Skepticism?</p>
+        <p>Skepticism is a philosophical approach that encourages a questioning and critical mindset towards claims, beliefs, and knowledge. Skeptics do not accept ideas at face value but rather subject them to rigorous examination, seeking evidence and rational justification before accepting them as true. The aim of skepticism is to foster a deeper understanding of reality by scrutinizing ideas, challenging assumptions, and distinguishing between valid information and unfounded claims. </p>
+        <p>How Skepticism Works:</p>
+        <ul>
+            <li>Doubt and Inquiry: Skepticism begins with doubt as a driving force for exploration. Skeptics inquire into the evidence, sources, and reasoning behind various propositions, seeking to identify any inconsistencies or logical fallacies.</li>
+            <li>Empirical Evidence: Skeptics prioritize empirical evidence—observations and data that can be objectively verified—over anecdotal accounts or baseless assertions. They seek well-founded evidence to support or refute a claim.</li>
+            <li>Open-Mindedness: Skeptics maintain an open mind and are willing to adjust their beliefs based on new evidence. They understand that knowledge is provisional and subject to revision as new information emerges.</li>
+            <li>Balancing Confidence: Skeptics refrain from absolute certainty, recognizing that some claims may remain inconclusive or uncertain. They strive to strike a balance between skepticism and reasonable confidence based on available evidence.</li>
+        </ul>
+        <p>The Goals of Skepticism:</p>
+        <ul>
+            <li>Pursuit of Truth: The primary goal of skepticism is the pursuit of truth and accurate understanding. By questioning and critically examining ideas, skeptics aim to separate reliable information from misinformation and pseudoscience.</li>
+            <li>Protection Against Deception: Skepticism serves as a safeguard against deception, manipulation, and fraud. By applying critical thinking, individuals can avoid falling prey to scams, misleading advertisements, and unfounded claims.</li>
+            <li>Fostering Scientific Inquiry: Skepticism supports scientific investigation and encourages reliance on evidence-based knowledge. It promotes scientific literacy and encourages public awareness of the scientific method.</li>
+            <li>Intellectual Humility: Skeptics embrace intellectual humility, acknowledging the limitations of human knowledge and the potential for error. They approach complex topics with humility, recognizing that they might not have all the answers.</li>
+        </ul>
+        <p>Embracing Skepticism: An Example Situation</p>
+        <p>Imagine you come across a sensational news article claiming that a new "miracle" weight-loss product can help people shed pounds effortlessly. As a skeptic, your initial response would be to approach this claim with skepticism rather than blind acceptance.</p>
+        <p>You might first consider the credibility of the source, checking if it is a reputable and reliable news outlet. Next, you would investigate the evidence presented to support the product's effectiveness. Are there scientific studies backing up these claims, or is the information based solely on personal testimonials?</p>
+        <p>A skeptic would also look for potential conflicts of interest. Are the promoters of the product financially benefiting from its sales? Are there any vested interests that might compromise the objectivity of the information?</p>
+        <p>By engaging in this critical inquiry, a skeptic would likely discover red flags or insufficient evidence to support the extravagant claims. As a result, they would remain skeptical of the product's effectiveness until robust, independent evidence can substantiate the claims made.</p>
+        <p>Skepticism and Humanism: Complementary Perspectives</p>
+        <p>Humanism and skepticism are harmonious philosophical perspectives that can enrich one another. While humanism emphasizes empathy, compassion, and the importance of human values, skepticism acts as the methodological foundation for achieving truth and understanding.</p>
+        <p>In their pursuit of truth, humanists can embrace skepticism to ensure their beliefs and ethical decisions are grounded in evidence and reason. This ensures that the principles they advocate for are well-founded, rather than being based on unfounded assumptions or dogma.</p>
+        <p>Conversely, skeptics can draw inspiration from humanism's focus on human welfare and ethical considerations. When engaging in critical inquiry, skeptics can be mindful of the potential impact of their findings on human lives and well-being, using their insights to promote positive change and social justice.</p>
+        <p>Together, humanism and skepticism form a powerful alliance, guiding individuals towards informed decision-making that prioritizes both the pursuit of truth and the betterment of humanity.</p>
+        <p>In the subsequent chapter, we will explore the concept of agnosticism, delving into its significance in addressing questions about gods, spirituality, and the ultimate nature of reality. We will witness how agnosticism complements the humanistic and skeptical perspectives, offering a nuanced approach to life's existential mysteries.</p>
         <div>
-            <button class="btn" onclick="loadChapter3()">Humanism</button>
-        </div>
-        <div>
-            <button class="btn" onclick="loadChapter1()">xxx</button>
+            <button class="btn" onclick="loadChapter3()">Agnosticism</button>
+            <button class="btn" onclick="loadChapter1()">Humanism</button>
         </div>
     `;
 
@@ -144,7 +172,7 @@ function loadChapter2() {
 }
 
 function loadChapter3() {
-    // Set the new content for Chapter 3
+    goToTop();
     const chapter2Content = `
         <h2>Humanism</h2>
         <p>text for Humanism</p>
