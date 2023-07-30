@@ -22,7 +22,7 @@
     }
 
     .big_header h2{
-        font-size: calc(1vw + 1rem);
+        font-size: calc(1.25vw + 0.6rem);
     }
 }
 
