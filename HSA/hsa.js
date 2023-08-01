@@ -50,6 +50,7 @@ function goToTop() {
 }
 
 function loadIntro() {
+    changeToBlueGradient();
     goToTop();
     const chapter2Content = `
         <h1>Introduction</h1>
@@ -83,6 +84,7 @@ function loadIntro() {
 }
 
 function loadChapter1() {
+    changeToRedGradient();
     goToTop();
     // Set the new content for Chapter 1
     const chapter2Content = `
@@ -328,5 +330,19 @@ function loadConclusion() {
     // Update the content container with the new content
     contentContainer.innerHTML = chapter2Content;
 }
+
+function changeToRedGradient() {
+    // Get the body element
+    var bodyElement = document.getElementsByTagName("body")[0];
+
+    // Add the "red-gradient" class to the body
+    bodyElement.classList.add("red-gradient");
+  }
+
+  function changeToBlueGradient() {
+    var bodyElement = document.getElementsByTagName("body")[0];
+    bodyElement.classList.remove("red-gradient");
+    bodyElement.classList.add("bg-animation"); // Add back the background animation
+  }
 
 window.onload = loadChapterContent();

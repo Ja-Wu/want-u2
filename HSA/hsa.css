@@ -1,17 +1,21 @@
 /* hsa.css */
 
 body {
-    color: white;
-    font-family: "arial";
-    background: #191919;
-    background-image: linear-gradient(40deg, rgb(0, 128, 128), navy, rgb(0, 0, 0));
-    background-size: 400%;
-    animation: bg-animation 40s infinite alternate;
-  }
+  color: white;
+  font-family: "arial";
+  background: #191919;
+  background-image: linear-gradient(45deg, black, rgb(0, 0, 64), rgb(16, 0, 32), rgb(0, 0, 64), black);
+  background-size: 1000%;
+  animation: bg-animation 60s infinite alternate;
+}
 
-@keyframes bg-animation{
-  0%{background-position: left;}
-  100%{background-position: right;}
+@keyframes bg-animation {
+  0% { 
+    background-position: left; 
+  }
+  100% { 
+    background-position: right; 
+  }
 }
 
   .main-container {
