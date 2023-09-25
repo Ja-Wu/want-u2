@@ -21,7 +21,7 @@
                 document.write("<tr>");
                 for(let k=0; k<3; k++){
                   for(let l=0; l<3; l++){
-                    document.write(`<td><button onclick="nextMove(this, ${i}, ${k}, ${j}, ${l})" data-srow=${i} data-scol=${k} data-row=${j} data-col=${l} data-player=""></button></td>`);
+                    document.write(`<td><button class="gamebutton" onclick="nextMove(this, ${i}, ${k}, ${j}, ${l})" data-srow=${i} data-scol=${k} data-row=${j} data-col=${l} data-player=""></button></td>`);
                   }
                   document.write('<td><div class="invisible-box"></div></td>')
                 }

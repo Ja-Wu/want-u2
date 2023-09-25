@@ -134,6 +134,7 @@ class SuperBoard {
 // game:
 const superBoard = new SuperBoard();
 let currentPlayer = 'X';
+const buttons = document.querySelectorAll(".gamebutton"); // Get all buttons with the class "gamebutton"
 
 // Function to handle button click
 function nextMove(button, sRow, sCol, row, col) {
@@ -169,8 +170,7 @@ function nextMove(button, sRow, sCol, row, col) {
 }
 
 function enableButtons(sRow, sCol, winner) {
-  // this function overrides every button inside the (sRow, sCol) board with the winning player character and enables every other button 
-  const buttons = document.querySelectorAll("button"); // Get all the buttons
+  // this function overrides every button inside the (sRow, sCol) board with the winning player character and enables every other button
   // Convert sRow and sCol to strings for comparison
   const sRowStr = sRow.toString();
   const sColStr = sCol.toString();
@@ -193,7 +193,6 @@ function enableButtons(sRow, sCol, winner) {
 
 function disableButtons(sRow, sCol) {
   // this function disables every button that is not in the (sRow, sCol) board
-  const buttons = document.querySelectorAll("button"); // Get all the buttons
   // Convert sRow and sCol to strings for comparison
   const sRowStr = sRow.toString();
   const sColStr = sCol.toString();
@@ -224,7 +223,6 @@ function changePlayer() {
 }
 
 function victory(winner) {
-  const buttons = document.querySelectorAll("button");
 
   buttons.forEach((button) => {
     if (winner === 'tie') {
