@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="super.css">
+  </head>
+  <body>
+    <h1>Super Tic Tac Toe</h1>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <button class="btn" onclick="window.location.href='../index.html'">home</button>
+      <p style="margin: 0;">Active Player: <span id="activePlayer">X</span></p>
+      <button class="btn" onclick="window.location.href='https://www.youtube.com/watch?v=_Na3a1ZrX7c&t=18s'">rules</button>
+    </div>  
+    <div id="grid-container">
+      <!-- Create the 9x9 grid of buttons -->
+      <table>
+        <tbody>
+          <script>
+            for(let i=0; i<3; i++){
+              for(let j=0; j<3; j++){
+                document.write("<tr>");
+                for(let k=0; k<3; k++){
+                  for(let l=0; l<3; l++){
+                    document.write(`<td><button onclick="nextMove(this, ${i}, ${k}, ${j}, ${l})" data-srow=${i} data-scol=${k} data-row=${j} data-col=${l} data-player=""></button></td>`);
+                  }
+                  document.write('<td><div class="invisible-box"></div></td>')
+                }
+                document.write("</tr>");
+              }
+              document.write('<td><div class="invisible-box"></div></td>')
+            }
+          </script>
+        </tbody>
+      </table>
+    </div>
+    
+    <script src="super.js"></script>
+  </body>
+</html>

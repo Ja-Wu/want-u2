@@ -1,0 +1,98 @@
+/* Apply dark theme to the entire page */
+body {
+    background-color: #121212; /* Dark background color */
+    color: #ffffff; /* Text color */
+    font-family: Arial, sans-serif; /* Specify your preferred font */
+  }
+  
+  /* Center the grid container */
+  #grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Make the container fill the viewport vertically */
+  }
+
+  .invisible-box {
+    width: 1px; /* Adjust as per your desired spacing */
+    height: 1px; /* Adjust as per your desired spacing */
+    margin: 1px; /* Adjust as per your desired spacing */
+    padding: 0; /* Set padding to 0 to avoid any visible content */
+    border: none; /* Remove borders if needed */
+    background: transparent; /* Make the box transparent */
+  }
+
+  /* Add some spacing between buttons */
+td {
+    padding: 6px;
+  }
+  
+  /* Style the header */
+  h1 {
+    text-align: center;
+  }
+  
+  /* Style the active player indicator */
+  #activePlayer {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  /* Style the buttons */
+  button {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    border: none;
+    font-size: 16px; /* Font size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Add a smooth transition effect */
+  }
+  
+  /* Style enabled buttons for player 'X' */
+  button[data-player="X"]:enabled {
+    background-color: #ff5733; /* Player 'X' button background color */
+    color: #ffffff; /* Player 'X' button text color */
+  }
+  
+  /* Style enabled buttons for player 'O' */
+  button[data-player="O"]:enabled {
+    background-color: #3388ff; /* Player 'O' button background color */
+    color: #ffffff; /* Player 'O' button text color */
+  }
+  
+  /* Style disabled buttons */
+  button:disabled {
+    background-color: #666; /* Button background color for disabled state */
+    color: #999; /* Button text color for disabled state */
+    cursor: not-allowed; /* Change cursor style for disabled buttons */
+  }
+  
+/* Style used buttons for player 'X' */
+button[data-player="X"].used {
+    background-color: #993333; /* Used button background color for player 'X' */
+    color: #cccccc; /* Used button text color for player 'X' */
+  }
+  
+  /* Style used buttons for player 'O' */
+  button[data-player="O"].used {
+    background-color: #336699; /* Used button background color for player 'O' */
+    color: #cccccc; /* Used button text color for player 'O' */
+  }
+
+  .btn{
+    width: 80px;
+    height: 45px;
+    padding: 4px;
+    margin: 5px;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #3a3a3ac1;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 3px 3px 0 #fff;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+  }
