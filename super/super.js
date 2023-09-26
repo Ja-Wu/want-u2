@@ -1,48 +1,49 @@
 class Board {
     constructor() {
       this.board = [
-        [' ', ' ', ' '],
-        [' ', ' ', ' '],
-        [' ', ' ', ' ']
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
       ];
       this.winner = null;
+      this.sum = 0;
     }
   
     updateWinner() {
-        if (this.winner != null){return;}
+      if (this.winner != null){return;}
   
       // Helper function to check if three values are equal and not empty
       function equals3(a, b, c) {
-        return a === b && b === c && a !== ' ';
+        return a === b && b === c && a !== 0;
       }
   
       // Check horizontally
       for (let i = 0; i < 3; i++) {
         if (equals3(this.board[i][0], this.board[i][1], this.board[i][2])) {
-          this.winner = this.board[i][0];
+          this.sum = 9*this.board[i][0];
         }
       }
   
       // Check vertically
       for (let i = 0; i < 3; i++) {
         if (equals3(this.board[0][i], this.board[1][i], this.board[2][i])) {
-          this.winner = this.board[0][i];
+          this.sum = 9*this.board[0][i];
         }
       }
   
       // Check diagonally
       if (equals3(this.board[0][0], this.board[1][1], this.board[2][2])) {
-        this.winner = this.board[0][0];
+        this.sum = 9*this.board[0][0];
       }
       if (equals3(this.board[2][0], this.board[1][1], this.board[0][2])) {
-        this.winner = this.board[2][0];
+        this.sum = 9*this.board[2][0];
       }
   
       // Check for a tie
       let openSpots = 0;
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-          if (this.board[i][j] === ' ') {
+          if (this.board[i][j] === 0) {
             openSpots++;
           }
         }
@@ -50,6 +51,10 @@ class Board {
   
       if (this.winner === null && openSpots === 0) {
         this.winner = 'tie';
+      } else if (this.sum === 9) {
+        this.winner = 'X';
+      } else if (this.sum === -9) {
+        this.winner = 'O';
       }
     }
   }
@@ -58,6 +63,7 @@ class SuperBoard {
   constructor() {
     this.sboard = [];
     this.winner = null;
+    this.sSum = 0;
 
     // Initialize the 3x3 array of Board instances
     for (let i = 0; i < 3; i++) {
@@ -110,7 +116,11 @@ class SuperBoard {
 
     if (this.winner === null && openSpots === 0) {
       this.winner = 'tie';
+      this.sSum = 0;
     }
+    if(this.winner == 'X'){this.sSum = 81;}
+    else if(this.winner == 'O'){this.sSum = -81;}
+    else{this.evaluateBoard();}
   }
 
   printBoard(){
@@ -129,17 +139,32 @@ class SuperBoard {
       console.log("|-------|-------|-------|");
     }
   }
+
+  evaluateBoard(){
+    if(this.winner === null || this.winner === 'tie'){
+      this.sSum = 0;
+      for(var i=0; i<3; i++){
+        for(var j=0; j<3; j++){
+          this.sSum += this.sboard[i][j].sum;
+          console.log('value at (' + i + ',' + j + ') is ' + this.sboard[i][j].sum);
+        }
+      }
+    }
+  }
 }
 
 // game:
 const superBoard = new SuperBoard();
 let currentPlayer = 'X';
+let currentValue = 1;
 const buttons = document.querySelectorAll(".gamebutton"); // Get all buttons with the class "gamebutton"
 
 // Function to handle button click
 function nextMove(button, sRow, sCol, row, col) {
-  // update the board
-  superBoard.sboard[sRow][sCol].board[row][col] = currentPlayer;
+  console.clear();
+  // update the (sub-)board
+  superBoard.sboard[sRow][sCol].board[row][col] = currentValue;
+  superBoard.sboard[sRow][sCol].sum += currentValue;
   // Change the button's text content to current player
   button.textContent = currentPlayer;
   button.classList.add("used");
@@ -148,22 +173,27 @@ function nextMove(button, sRow, sCol, row, col) {
   } else {
     button.setAttribute("data-player", "X"); // Set data-player attribute for player 'X'
   }
-  // update the board winner
+  // update the (sub-)board winner
   superBoard.sboard[sRow][sCol].updateWinner();
+  superBoard.printBoard();
+  superBoard.evaluateBoard();
+  console.log('the sSum is ' + superBoard.sSum);
   // if the (sub-)board winner has changed, update the superBoard winner as well
   if(superBoard.sboard[sRow][sCol].winner !== null){
-    enableButtons(sRow, sCol, superBoard.sboard[sRow][sCol].winner);
     superBoard.updateWinner();
     if(superBoard.winner !== null){
+      console.log('the final sSum is ' + superBoard.sSum);
       console.log(superBoard.winner + " is the winner");
       victory(superBoard.winner);
+    } else {
+      enableButtons(sRow, sCol, superBoard.sboard[sRow][sCol].winner);
     }
   }
   if (superBoard.sboard[row][col].winner !== null){
     // disable current button
     button.disabled = true;
     enableButtons(row, col, superBoard.sboard[row][col].winner);
-  } else {
+  } else if(superBoard.winner === null){
     disableButtons(row, col);
   }
   changePlayer();
@@ -211,10 +241,12 @@ function disableButtons(sRow, sCol) {
 }
 
 function changePlayer() {
-    if (currentPlayer === 'X') {
+    if (currentValue === 1) {
         currentPlayer = 'O';
+        currentValue = -1;
     } else {
         currentPlayer = 'X';
+        currentValue = 1;
     }
 
     // Update the text on the webpage
