@@ -161,9 +161,11 @@ const buttons = document.querySelectorAll(".gamebutton"); // Get all buttons wit
 
 // Function to handle button click
 function nextMove(button, sRow, sCol, row, col) {
-  // update the (sub-)board
-  superBoard.sboard[sRow][sCol].board[row][col] = currentValue;
-  superBoard.sboard[sRow][sCol].sum += currentValue;
+  // update the subboard
+  let subboard = superBoard.sboard[sRow][sCol];
+  subboard.board[row][col] = currentValue;
+  subboard.sum += currentValue;
+  subboard.updateWinner();
   // Change the button's text content to current player
   button.textContent = currentPlayer;
   button.classList.add("used");
@@ -172,24 +174,22 @@ function nextMove(button, sRow, sCol, row, col) {
   } else {
     button.setAttribute("data-player", "X"); // Set data-player attribute for player 'X'
   }
+  button.disabled = true;
   // update the board winner
-  superBoard.sboard[sRow][sCol].updateWinner();
   superBoard.updateWinner();
   console.log('the sSum is ' + superBoard.sSum);
-  // if the (sub-)board winner has changed, update the superBoard winner as well
-  if(superBoard.sboard[sRow][sCol].winner !== null){
-    // superBoard.updateWinner();
+  // if the subboard winner has changed, update the superBoard winner as well
+  if(subboard.winner !== null){
     if(superBoard.winner !== null){
       console.log('the final sSum is ' + superBoard.sSum);
       console.log(superBoard.winner + " is the winner");
       victory(superBoard.winner);
     } else {
-      enableButtons(sRow, sCol, superBoard.sboard[sRow][sCol].winner);
+      overrideButtons(sRow, sCol, superBoard.sboard[sRow][sCol].winner);
     }
-  } else if (superBoard.winner === null) {
+  } 
+  if (superBoard.winner === null) {
     if (superBoard.sboard[row][col].winner !== null){
-      // disable current button
-      button.disabled = true;
       enableButtons(row, col, superBoard.sboard[row][col].winner);
     } else {
       disableButtons(row, col);
@@ -197,6 +197,20 @@ function nextMove(button, sRow, sCol, row, col) {
   }
   
   changePlayer();
+}
+
+function overrideButtons(sRow, sCol, winner){
+  const sRowStr = sRow.toString();
+  const sColStr = sCol.toString();
+
+  buttons.forEach((button) => {
+    if (button.dataset.srow === sRowStr && button.dataset.scol === sColStr) {
+      button.disabled = true;
+      button.textContent = winner;
+      button.classList.add("used");
+      button.setAttribute("data-player", winner);
+    }
+  });
 }
 
 function enableButtons(sRow, sCol, winner) {
