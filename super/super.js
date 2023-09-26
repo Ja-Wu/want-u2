@@ -146,7 +146,7 @@ class SuperBoard {
       for(var i=0; i<3; i++){
         for(var j=0; j<3; j++){
           this.sSum += this.sboard[i][j].sum;
-          console.log('value at (' + i + ',' + j + ') is ' + this.sboard[i][j].sum);
+          //console.log('value at (' + i + ',' + j + ') is ' + this.sboard[i][j].sum);
         }
       }
     }
@@ -161,7 +161,6 @@ const buttons = document.querySelectorAll(".gamebutton"); // Get all buttons wit
 
 // Function to handle button click
 function nextMove(button, sRow, sCol, row, col) {
-  console.clear();
   // update the (sub-)board
   superBoard.sboard[sRow][sCol].board[row][col] = currentValue;
   superBoard.sboard[sRow][sCol].sum += currentValue;
@@ -173,14 +172,13 @@ function nextMove(button, sRow, sCol, row, col) {
   } else {
     button.setAttribute("data-player", "X"); // Set data-player attribute for player 'X'
   }
-  // update the (sub-)board winner
+  // update the board winner
   superBoard.sboard[sRow][sCol].updateWinner();
-  superBoard.printBoard();
-  superBoard.evaluateBoard();
+  superBoard.updateWinner();
   console.log('the sSum is ' + superBoard.sSum);
   // if the (sub-)board winner has changed, update the superBoard winner as well
   if(superBoard.sboard[sRow][sCol].winner !== null){
-    superBoard.updateWinner();
+    // superBoard.updateWinner();
     if(superBoard.winner !== null){
       console.log('the final sSum is ' + superBoard.sSum);
       console.log(superBoard.winner + " is the winner");
@@ -188,14 +186,16 @@ function nextMove(button, sRow, sCol, row, col) {
     } else {
       enableButtons(sRow, sCol, superBoard.sboard[sRow][sCol].winner);
     }
+  } else if (superBoard.winner === null) {
+    if (superBoard.sboard[row][col].winner !== null){
+      // disable current button
+      button.disabled = true;
+      enableButtons(row, col, superBoard.sboard[row][col].winner);
+    } else {
+      disableButtons(row, col);
+    }
   }
-  if (superBoard.sboard[row][col].winner !== null){
-    // disable current button
-    button.disabled = true;
-    enableButtons(row, col, superBoard.sboard[row][col].winner);
-  } else if(superBoard.winner === null){
-    disableButtons(row, col);
-  }
+  
   changePlayer();
 }
 
@@ -270,7 +270,8 @@ function victory(winner) {
   const message = document.createElement("p");
 
   if (winner === 'tie') {
-    message.textContent = "It's a Tie! The game is a draw.";
+    if(superBoard.sSum > 0){winner = 'X';} else {winner = 'O';}
+    message.textContent = `It's a Tie! But Player ${winner} won more tiles!`;
   } else {
     message.textContent = `Congratulations, Player ${winner}! You are the winner!`;
   }
