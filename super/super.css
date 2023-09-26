@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* Make the container fill the viewport vertically */
+    height: 100vh; /* Make the container fill the viewport vertically */
   }
 
   .invisible-box {
@@ -31,7 +31,7 @@ td {
   h1 {
     text-align: center;
   }
-  
+
   /* Style the active player indicator */
   #activePlayer {
     font-weight: bold;
@@ -40,14 +40,26 @@ td {
   
   /* Style the buttons */
   button {
-    width: 40px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
+    width: 44px; /* Adjust the width as needed */
+    height: 44px; /* Adjust the height as needed */
     border: none;
     font-size: 16px; /* Font size */
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease; /* Add a smooth transition effect */
   }
+
+  /* Media query for screens */
+@media screen {
+  h1 {
+      font-size: calc(20px + 2vw); /* Adjust the formula for linear scaling */
+  }
+
+  button {
+    width: calc(20px + 1.25vw + 1.5vh);
+    height: calc(20px + 1.25vw + 1.5vh);
+  }
+}
   
   /* Style enabled buttons for player 'X' */
   button[data-player="X"]:enabled {
