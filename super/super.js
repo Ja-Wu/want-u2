@@ -305,6 +305,7 @@ function changePlayer() {
       buttons.forEach(button => {
         if(!button.disabled){
           nonDisabledButtons.push(button);
+          button.disabled = true;
         }
       });
 
@@ -313,9 +314,16 @@ function changePlayer() {
       
       // Get the randomly selected button
       const randomButton = nonDisabledButtons[randomIndex];
+
+      setTimeout(function(){
+        nonDisabledButtons.forEach(button =>{
+          button.disabled = false;
+        });
+        randomButton.click();
+      }, 500);
       
       // Call the click function of the selected button
-      randomButton.click();
+      
     }
 
     
