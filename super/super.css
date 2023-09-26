@@ -10,7 +10,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Make the container fill the viewport vertically */
+    height: calc(50px + 85vh); /* Make the container fill the viewport vertically */
+    padding-top: 30px;
   }
 
   .invisible-box {
@@ -56,8 +57,8 @@ td {
   }
 
   button {
-    width: calc(20px + 1.25vw + 1.5vh);
-    height: calc(20px + 1.25vw + 1.5vh);
+    width: calc((20px + 1.5vw + 1.25vh)*0.9);
+    height: calc((20px + 1.25vw + 1.5vh)*0.9);
   }
 }
   
