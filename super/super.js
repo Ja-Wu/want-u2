@@ -158,6 +158,45 @@ const superBoard = new SuperBoard();
 let currentPlayer = 'X';
 let currentValue = 1;
 const buttons = document.querySelectorAll(".gamebutton"); // Get all buttons with the class "gamebutton"
+buttons.forEach(button => {
+  button.disabled = true;
+});
+
+// Initialize the singlePlayer variable to null (undefined)
+let singlePlayer = null;
+
+// Get the radio buttons and start button by their IDs
+const singlePlayerRadio = document.getElementById("singlePlayerRadio");
+const pvpRadio = document.getElementById("pvpRadio");
+const startButton = document.getElementById("startButton");
+
+// Get the gameSetup container
+const gameSetupContainer = document.getElementById("gameSetup");
+
+
+// Add event listeners to record the user's choice when the start button is clicked
+startButton.addEventListener("click", () => {
+  if (singlePlayer === null) {
+    if (singlePlayerRadio.checked) {
+      singlePlayer = true;
+    } else if (pvpRadio.checked) {
+      singlePlayer = false;
+    }
+
+    // Disable the radio buttons and start button to prevent further changes
+    singlePlayerRadio.disabled = true;
+    pvpRadio.disabled = true;
+    startButton.disabled = true;
+
+    // Hide the gameSetup container
+    gameSetupContainer.style.display = "none";
+
+    // enable all buttons to start the game
+    buttons.forEach(button => {
+      button.disabled = false;
+    });
+  }
+});
 
 // Function to handle button click
 function nextMove(button, sRow, sCol, row, col) {
@@ -194,9 +233,8 @@ function nextMove(button, sRow, sCol, row, col) {
     } else {
       disableButtons(row, col);
     }
+    changePlayer();
   }
-  
-  changePlayer();
 }
 
 function overrideButtons(sRow, sCol, winner){
@@ -255,17 +293,40 @@ function disableButtons(sRow, sCol) {
 }
 
 function changePlayer() {
-    if (currentValue === 1) {
-        currentPlayer = 'O';
-        currentValue = -1;
-    } else {
-        currentPlayer = 'X';
-        currentValue = 1;
+  if (currentValue === 1) {
+    // other player
+    currentPlayer = 'O';
+    currentValue = -1;
+
+    if(singlePlayer){
+      // single player mode: user vs. AI
+      // Use the filter method to get the non-disabled buttons
+      let nonDisabledButtons = [];
+      buttons.forEach(button => {
+        if(!button.disabled){
+          nonDisabledButtons.push(button);
+        }
+      });
+
+      // Choose a random index within the range of non-disabled buttons
+      const randomIndex = Math.floor(Math.random() * nonDisabledButtons.length);
+      
+      // Get the randomly selected button
+      const randomButton = nonDisabledButtons[randomIndex];
+      
+      // Call the click function of the selected button
+      randomButton.click();
     }
 
-    // Update the text on the webpage
-    const activePlayerElement = document.getElementById('activePlayer');
-    activePlayerElement.textContent = currentPlayer;
+    
+  } else {
+    currentPlayer = 'X';
+    currentValue = 1;
+  }
+
+  // Update the text on the webpage
+  const activePlayerElement = document.getElementById('activePlayer');
+  activePlayerElement.textContent = currentPlayer;
 }
 
 function victory(winner) {

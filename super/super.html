@@ -11,6 +11,17 @@
       <p style="margin: 0;">Active Player: <span id="activePlayer">X</span></p>
       <button class="btn" onclick="window.location.href='https://www.youtube.com/watch?v=_Na3a1ZrX7c&t=18s'">rules</button>
     </div>  
+    <div id="gameSetup">
+      <p>
+        <label>
+          <input type="radio" name="gameMode" id="singlePlayerRadio" checked> Single Player
+      </label>
+      <label>
+          <input type="radio" name="gameMode" id="pvpRadio"> PvP (Player vs. Player)
+      </label>
+      </p>
+      <button class="btn" id="startButton">Start Game</button>
+  </div>
     <div id="grid-container">
       <!-- Create the 9x9 grid of buttons -->
       <table>

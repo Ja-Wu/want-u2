@@ -14,6 +14,15 @@ body {
     padding-top: 30px;
   }
 
+#gameSetup {
+  text-align: center; /* Center-align text within the container */
+}
+
+/* Add margin between the labels */
+label {
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+
   .invisible-box {
     width: 1px; /* Adjust as per your desired spacing */
     height: 1px; /* Adjust as per your desired spacing */
