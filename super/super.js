@@ -146,7 +146,6 @@ class SuperBoard {
       for(var i=0; i<3; i++){
         for(var j=0; j<3; j++){
           this.sSum += this.sboard[i][j].sum;
-          //console.log('value at (' + i + ',' + j + ') is ' + this.sboard[i][j].sum);
         }
       }
     }
@@ -174,7 +173,7 @@ const startButton = document.getElementById("startButton");
 const gameSetupContainer = document.getElementById("gameSetup");
 
 
-// Add event listeners to record the user's choice when the start button is clicked
+// before game starts check the game mode
 startButton.addEventListener("click", () => {
   if (singlePlayer === null) {
     if (singlePlayerRadio.checked) {
@@ -216,7 +215,7 @@ function nextMove(button, sRow, sCol, row, col) {
   button.disabled = true;
   // update the board winner
   superBoard.updateWinner();
-  console.log('the sSum is ' + superBoard.sSum);
+  console.log('the current sSum is ' + superBoard.sSum);
   // if the subboard winner has changed, update the superBoard winner as well
   if(subboard.winner !== null){
     if(superBoard.winner !== null){
@@ -300,30 +299,35 @@ function changePlayer() {
 
     if(singlePlayer){
       // single player mode: user vs. AI
-      // Use the filter method to get the non-disabled buttons
       let nonDisabledButtons = [];
+      let aiMove;
+      let currentMin = Infinity;
       buttons.forEach(button => {
         if(!button.disabled){
           nonDisabledButtons.push(button);
           button.disabled = true;
+          let newBoardValue = evaluateMove(superBoard, button)
+          if(newBoardValue < currentMin){
+            currentMin = newBoardValue;
+            aiMove = button;
+          }
         }
       });
 
-      // Choose a random index within the range of non-disabled buttons
-      const randomIndex = Math.floor(Math.random() * nonDisabledButtons.length);
+      // if all the moves are best moves, choose a random move
+      if(currentMin === superBoard.sSum - 1){
+        const randomIndex = Math.floor(Math.random() * nonDisabledButtons.length);
+        
+        // Get the randomly selected button
+        aiMove = nonDisabledButtons[randomIndex];
+      }
       
-      // Get the randomly selected button
-      const randomButton = nonDisabledButtons[randomIndex];
-
       setTimeout(function(){
         nonDisabledButtons.forEach(button =>{
           button.disabled = false;
         });
-        randomButton.click();
+        aiMove.click();
       }, 500);
-      
-      // Call the click function of the selected button
-      
     }
 
     
@@ -335,6 +339,44 @@ function changePlayer() {
   // Update the text on the webpage
   const activePlayerElement = document.getElementById('activePlayer');
   activePlayerElement.textContent = currentPlayer;
+}
+
+function evaluateMove(board, button){
+  let sRow = button.getAttribute("data-srow");
+  let sCol = button.getAttribute("data-scol");
+  let row = button.getAttribute("data-row");
+  let col = button.getAttribute("data-col");
+
+  // copy superBoard (board)
+  let newSBoard = new SuperBoard();
+  newSBoard.sSum = board.sSum;
+  newSBoard.winner = board.winner;
+  for(let i=0; i<3; i++){
+    for(let j=0; j<3; j++){
+      // copy subboard
+      for(let x=0; x<3; x++){
+        for(let y=0; y<3; y++){
+          newSBoard.sboard[i][j].board[x][y] = board.sboard[i][j].board[x][y]
+        }
+      }
+      newSBoard.sboard[i][j].sum = board.sboard[i][j].sum;
+      newSBoard.sboard[i][j].winner = board.sboard[i][j].winner;
+    }
+  }
+  // update the subboard
+  let subboard = newSBoard.sboard[sRow][sCol];
+  subboard.board[row][col] = currentValue;
+  subboard.sum += currentValue;
+  subboard.updateWinner();
+
+  // update the superBoard
+  if(subboard.winner !== null){
+    newSBoard.updateWinner();
+  } else {
+    newSBoard.evaluateBoard();
+  }
+  console.log("entry at " + sRow + ", " + sCol + ", " + row + ", " + col + " results in " + newSBoard.sSum);
+  return newSBoard.sSum;
 }
 
 function victory(winner) {
