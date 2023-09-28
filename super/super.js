@@ -215,11 +215,10 @@ function nextMove(button, sRow, sCol, row, col) {
   button.disabled = true;
   // update the board winner
   superBoard.updateWinner();
-  console.log('the current sSum is ' + superBoard.sSum);
+  //console.log('the current sSum is ' + superBoard.sSum);
   // if the subboard winner has changed, update the superBoard winner as well
   if(subboard.winner !== null){
     if(superBoard.winner !== null){
-      console.log('the final sSum is ' + superBoard.sSum);
       console.log(superBoard.winner + " is the winner");
       victory(superBoard.winner);
     } else {
