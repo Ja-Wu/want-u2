@@ -375,7 +375,6 @@ function evaluateMove(board, button){
   } else {
     newSBoard.evaluateBoard();
   }
-  console.log("entry at " + sRow + ", " + sCol + ", " + row + ", " + col + " results in " + newSBoard.sSum);
   return newSBoard.sSum;
 }
 
