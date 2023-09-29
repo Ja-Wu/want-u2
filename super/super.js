@@ -298,28 +298,30 @@ function changePlayer() {
 
     if(singlePlayer){
       // single player mode: user vs. AI
+      console.clear();
       let nonDisabledButtons = [];
       let aiMove;
       let currentMin = Infinity;
+      let alpha = -Infinity;
+      let beta = Infinity;
       buttons.forEach(button => {
         if(!button.disabled){
           nonDisabledButtons.push(button);
           button.disabled = true;
-          let newBoardValue = evaluateMove(superBoard, button)
+          let newBoardValue = evaluateMove(superBoard, button, alpha, beta)
           if(newBoardValue < currentMin){
             currentMin = newBoardValue;
             aiMove = button;
           }
+          beta = Math.min(newBoardValue, beta);
         }
       });
-
-      // if all the moves are best moves, choose a random move
-      if(currentMin === superBoard.sSum - 1){
-        const randomIndex = Math.floor(Math.random() * nonDisabledButtons.length);
-        
-        // Get the randomly selected button
-        aiMove = nonDisabledButtons[randomIndex];
-      }
+      
+      let sRow = aiMove.getAttribute("data-srow");
+      let sCol = aiMove.getAttribute("data-scol");
+      let row = aiMove.getAttribute("data-row");
+      let col = aiMove.getAttribute("data-col");
+      console.log("min value: "+ currentMin + " at " + sRow + ", " + sCol + ", " + row + ", " + col);
       
       setTimeout(function(){
         nonDisabledButtons.forEach(button =>{
@@ -340,7 +342,7 @@ function changePlayer() {
   activePlayerElement.textContent = currentPlayer;
 }
 
-function evaluateMove(board, button){
+function evaluateMove(board, button, alpha, beta){
   let sRow = button.getAttribute("data-srow");
   let sCol = button.getAttribute("data-scol");
   let row = button.getAttribute("data-row");
@@ -374,7 +376,7 @@ function evaluateMove(board, button){
   } else {
     newSBoard.evaluateBoard();
   }
-  return newSBoard.sSum;
+  return minimax(newSBoard, 7, alpha, beta, row, col, false);
 }
 
 function minimax(board, depth, alpha, beta, sRow, sCol, isAi){
