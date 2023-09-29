@@ -377,6 +377,111 @@ function evaluateMove(board, button){
   return newSBoard.sSum;
 }
 
+function minimax(board, depth, alpha, beta, sRow, sCol, isAi){
+  if(depth === 0 || board.winner !== null){
+    return board.sSum;
+  }
+
+  let newValue = 1;
+  if(isAi){newValue = -1;}
+
+  // make children
+  let children = [];
+  let nextRow = [];
+  let nextCol = [];
+  if(board.sboard[sRow][sCol].winner !== null){
+    for(let i=0; i<3; i++){
+      for(let j=0; j<3; j++){
+        if(board.sboard[i][j].winner !== null){
+          for(let x=0; x<3; x++){
+            for(let y=0; y<3; y++){
+              if(board.sboard[i][j].board[x][y] === 0){
+                let child = copyBoard(board);
+                let subboard = child.sboard[i][j];
+                subboard.board[x][y] = newValue;
+                subboard.sum += newValue;
+                subboard.updateWinner();
+                if(subboard.winner !== null){
+                  child.updateWinner();
+                } else {
+                  child.evaluateBoard();
+                }
+                children.push(child);
+                nextRow.push(x);
+                nextCol.push(y);
+              }
+            }
+          }
+        }
+      }
+    }
+  } else {
+    for(let i=0; i<3; i++){
+      for(let j=0; j<3; j++){
+        if(board.sboard[sRow][sCol].board[i][j] === 0){
+          let child = copyBoard(board);
+          let subboard = child.sboard[sRow][sCol];
+          subboard.board[i][j] = newValue;
+          subboard.sum += newValue;
+          subboard.updateWinner();
+          if(subboard.winner !== null){
+            child.updateWinner();
+          } else {
+            child.evaluateBoard();
+          }
+          children.push(child);
+          nextRow.push(i);
+          nextCol.push(j);
+        }
+      }
+    }
+  }
+
+  if(!isAi){
+    let maxEval = -Infinity;
+    for(let i=0; i<children.length; i++){
+      let eval = minimax(children[i], depth-1, alpha, beta, nextRow[i], nextCol[i], true);
+      maxEval = Math.max(maxEval, eval);
+      alpha = Math.max(alpha, eval);
+      if(beta <= alpha){
+        break;
+      }
+    }
+    return maxEval;
+  } else {
+    let minEval = Infinity;
+    for(let i=0; i<children.length; i++){
+      let eval = minimax(children[i], depth-1, alpha, beta, nextRow[i], nextCol[i], false);
+      minEval = Math.min(minEval, eval);
+      beta = Math.min(alpha, eval);
+      if(beta <= alpha){
+        break;
+      }
+    }
+    return minEval;
+  }
+}
+
+function copyBoard(board){
+  // copy superBoard (board)
+  let newSBoard = new SuperBoard();
+  newSBoard.sSum = board.sSum;
+  newSBoard.winner = board.winner;
+  for(let i=0; i<3; i++){
+    for(let j=0; j<3; j++){
+      // copy subboard
+      for(let x=0; x<3; x++){
+        for(let y=0; y<3; y++){
+          newSBoard.sboard[i][j].board[x][y] = board.sboard[i][j].board[x][y]
+        }
+      }
+      newSBoard.sboard[i][j].sum = board.sboard[i][j].sum;
+      newSBoard.sboard[i][j].winner = board.sboard[i][j].winner;
+    }
+  }
+  return newSBoard;
+}
+
 function victory(winner) {
 
   buttons.forEach((button) => {
