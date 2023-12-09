@@ -224,15 +224,15 @@
 						<span style="color: green;">Green</span>
 						<span style="color: blue;">Blue</span>
 						<div style="display: flex; justify-content: center; align-items: center;">
-							<div style="margin-right: 150px;">
+							<div style="margin-right: 250px;">
 								<div>
-									<input type="range" min="0" max="255" value="0" id="redI" style="width: 200%;">
+									<input type="range" min="0" max="255" value="0" id="redI" style="width: 250%;">
 								</div>
 								<div>
-									<input type="range" min="0" max="255" value="0" id="greenI" style="width: 200%;">
+									<input type="range" min="0" max="255" value="0" id="greenI" style="width: 250%;">
 								</div>
 								<div>
-									<input type="range" min="0" max="255" value="0" id="blueI" style="width: 200%;">
+									<input type="range" min="0" max="255" value="0" id="blueI" style="width: 250%;">
 								</div>
 							</div>
 							<div id="colorDisplay" style="width: 200px; height: 200px; border: 4px solid black; font-size: 20px;">
@@ -254,28 +254,28 @@
 						<h1>HSV</h1>
 						<p>Hue Saturation Value</p>
 						<div style="display: flex; justify-content: center; align-items: center;">
-							<div style="margin-right: 200px;">
+							<div style="margin-right: 250px;">
 								<div>
-									<input type="range" min="0" max="360" value="0" id="hueInput" style="width: 200%;">
+									<input type="range" min="0" max="360" value="0" id="hueInput" style="width: 250%;">
 								</div>
 								<div>
-									<input type="range" min="0" max="100" value="0" id="saturationInput" style="width: 200%;">
+									<input type="range" min="0" max="100" value="0" id="saturationInput" style="width: 250%;">
 								</div>
 								<div>
-									<input type="range" min="0" max="100" value="0" id="valueInput" style="width: 200%;">
+									<input type="range" min="0" max="100" value="0" id="valueInput" style="width: 250%;">
 								</div>
 							</div>
 							<div id="colorDisplayHSV" style="width: 200px; height: 200px; border: 4px solid black; font-size: 20px;">
-								<p id="hueValue" style="position: relative; top: 100px; left: -70px;">H: 0</p>
-								<p id="saturationValue" style="position: relative; top: 80px; left: -70px;">S: 0</p>
-								<p id="valueValue" style="position: relative; top: 60px; left: -70px;">V: 0</p>
+								<p id="hueValue" style="position: relative; top: 100px; left: -60px;">H: 0</p>
+								<p id="saturationValue" style="position: relative; top: 80px; left: -60px;">S: 0</p>
+								<p id="valueValue" style="position: relative; top: 60px; left: -60px;">V: 0</p>
 							</div>
 						</div>
-						
+						<p style="font-size: xx-large;">Farben basierend auf drei Hauptkomponenten repräsentiert:</p>
 						<ul style="font-size: xx-large;">
-							<li>Pixel hat wieder 3 Werte</li>
-							<li></li>
-							<li>Wert von Teilfarben hat auswirkung auf finale Farbe</li>
+							<li>Farbton (Hue) ist die Art der Farbe, in Grad gemessen  (0° ... 360°)</li>
+							<li>Sättigung (Saturation) ist die Intensität der Farbe  (0% ... 100%)</li>
+							<li>Helligkeit (Value/Brightness) ist die Helligkeit der Farbe  (0% ... 100%)</li>
 						</ul>
 						<script src="HSV_slide.js"></script>						
 					</section>
