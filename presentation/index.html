@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
     	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/rainbow.min.css">
+		<link rel="stylesheet" href="generalStyle.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
 	</head>
 
@@ -99,8 +101,8 @@
 					<ul>
 						<li><a href="#section-i">I. Einführung in digitale Bilder</a></li>
 						<li><a href="#section-ii">II. Generative Art</a></li>
-						<li><a href="#section-iii">III. Techniken</a></li>
-						<li><a href="#section-iv">IV. Einführung in das Programmieren</a></li>
+						<li><a href="#section-iv">III. Einführung in das Programmieren</a></li>
+						<li><a href="#section-iii">IV. Techniken</a></li>
 						<li><a href="#section-v">V. Einführung in p5js</a></li>
 						<li><a href="#section-vi">VI. Coding Session</a></li>
 					</ul>
@@ -108,7 +110,7 @@
 				  
 		  
 				<!-- Section 1 -->
-				<section id="section-1">
+				<section id="section-i">
 					<section>
 						<h1>I. Einführung in digitale Bilder</h1>
 						
@@ -281,19 +283,180 @@
 					</section>
 				</section>
 		  
-				  <!-- Section 2 -->
-				<section id="section-2">
-				<h1>Section 2</h1>
-				<p>Content for Section 2.</p>
+				  <!-- 
+					Section 2 
+				-->
+				<section id="section-ii">
 					<section>
-						<h2>Subsection 2.1</h2>
-						<p>Content for Subsection 2.1.</p>
+						<h1>II. Generative Art</h1>
 					</section>
 					<section>
-						<h2>Subsection 2.2</h2>
-						<p>Content for Subsection 2.2.</p>
+						<h1>2.1 Definition</h1>
+						<p style="padding-bottom: 25px; text-align: left;">Form des kreativen Ausdrucks, die sich auf Algorithmen, Regeln oder Prozesse stützt, die vom Künstler festgelegt werden</p>
+						<p style="text-align: left;">Entsteht unter Verwendung systematischer Prozeduren, meist durch Programmieren</p>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							### 2.2 Arten von Generativer Kunst
+
+							- **Algorithmische Kunst:** auf (mathematischen) Algorithmen basierent
+							- **Interaktive Kunst:** durch Interaktion mit dem Betrachter verändert
+							- **Fraktale Kunst:** wiederholte Musterbildung
+							- **Zufallsbasierte Kunst:** zufälligen Entscheidungen oder Ereignissen	
+						</textarea>
 					</section>
 				</section>
+
+				<!--
+					section III:  Einführung in das Programmieren
+				-->
+				<section id="section-iii">
+					<section>
+						<h1>III. Einführung in das Programmieren</h1>
+						<p>mit JavaScript</p>
+					</section>
+
+					<section>
+						<h2>3.1 Basics</h2>
+						<p style="text-decoration: underline;">Programmieren:</p>
+						<p style="text-align: left;">ein Weg einem Computer Anweisungen mitzuteilen unter Verwendung einer Programmiersprache</p>
+					</section>
+					<section>
+						<p style="text-decoration: underline;">JavaScript:</p>
+						<p style="text-align: left;">weit verbreitete Programmiersprache, die hauptsächlich für die Entwicklung von interaktiven Webseiten verwendet wird</p>
+					</section>
+					<section>
+						<p style="text-decoration: underline;">Code:</p>
+						<p style="text-align: left;">Sammlung von Anweisungen oder Befehlen, die einem Computer sagen, was er tun soll. </p>
+						<p style="text-align: left;">Folgt wohl definierter Syntax und Struktur, wobei kleine Fehler, wie Rechtschreibfehler, große Auswirkungen haben.</p>
+					</section>
+					<section>
+						<p style="text-decoration: underline;">Syntax:</p>
+						<p style="text-align: left;">spezifische Struktur und die Regeln, die befolgt werden müssen, damit der Computer den Code korrekt interpretieren kann.</p>
+					</section>
+
+					<section>
+						<h1>3.2 Schlüsselwörter</h1>
+						<p>reservierte Wörter, die spezielle Bedeutungen und Funktionen innerhalb des Codes haben</p>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<p style="text-decoration: underline;">Variable</p>
+						<p>Speicherort für Daten im Computer</p>
+						<p class="left">wie eine Box, in der man Dinge aufbewahren kann <br> Box hat einen Namen und einen Inhalt</p>
+						<p class="left">anlegen einer Variable:</p>
+						<pre><code class="hljs javascript">let name = wert;</code></pre>
+						<p class="left">Bsp.: Wir haben 2 Äpfel, 10 Kirschen und eine Banane</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers><script type="text/template">
+							let apple = 2;
+							let cherry = 10;
+							let banana = 1;
+						</script></code></pre>
+						<p class="left">Die Variable mit dem Namen 'apple' hat den Wert 2, die Variable names 'cherry' hat den Wert 10 und 'banana' hat den Wert 1.</p>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<p style="text-decoration: underline;">Variable</p>
+						<p>basis Operationen</p>
+						<p class="left">Arithmetische Operationen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let a = 10;
+							let b = 5;
+							let summe = a + b; 		// Addition
+							let differenz = a - b; 	// Subtraktion
+							let produkt = a * b; 	// Multiplikation
+							let quotient = a / b; 	// Division
+							let rest = a % b; 		// Modulo (Rest)
+						</code></pre>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<p style="text-decoration: underline;">Variable</p>
+						<p>basis Operationen</p>
+						<p class="left">Erhöhen und Verringern</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let anzahl = 0;
+							let n = 100;
+							anzahl++; // Inkrement um 1
+							anzahl--; // Dekrement um 1
+
+							anzahl += n; // Erhöhe um n
+							anzahl -= n; // Verringere um n
+
+							anzahl = anzahl + n;	// Äquivalent zu: anzahl += n;
+							anzahl = anzahl - n;	// Äquivalent zu: anzahl -= n;
+						</code></pre>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<p style="text-decoration: underline;">Variable</p>
+						<p>basis Operationen</p>
+						<p class="left">Verkettung von Zeichenketten</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let vorname = "Max";
+							let nachname = "Mustermann";
+							let vollerName = vorname + " " + nachname; // Verkettung
+
+							let teil1 = "abcdefghijklm";
+							let teil2 = "nopqrstuvwxyz";
+							let alphabet = teil1 + teil2;
+						</code></pre>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<p style="text-decoration: underline;">Variable</p>
+						<p>basis Operationen</p>
+						<p class="left">Vergleiche</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let x = 10;
+							let y = 5;
+							let istGleich = x === y;
+							let istKleiner = x < y;
+							let istKleinerGleich = x <= y;
+						</code></pre>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<p style="text-decoration: underline;">Variable</p>
+						<p>basis Operationen</p>
+						<p class="left">Logische Operationen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let istWochenende = false;
+							let istFeiertag = true;
+							let istWochentag = !istWochenende;
+							let keineSchule = istWochenende || istFeiertag;
+
+							let hatFahrerlaubnis = true;
+							let hatAuto = false;
+							let kannAutofahren = hatFahrerlaubnis && hatAuto;
+						</code></pre>
+					</section>
+					<section>
+						<h4>Aufgabe</h4>
+						<p>Welche Werte haben x,y und z?</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let year = 2023;
+							let dozen = 12;
+							let black = 0;
+							let white = 255;
+
+							year++;
+							white += black;
+
+							let x = year - dozen;
+							let y = white%2;
+							let z = white/black;
+						</code></pre>
+					</section>
+					<section>
+						<p style="text-decoration: underline;">Arrays</p>
+						<ul>
+							<li>Wie Listen</li>
+							<li>notiert mit ekigen Klammern</li>
+							<li>Elemente mit Komma getrennt</li>
+						</ul>
+						<pre><code class="hljs javascript" data-trim>
+							let array = [1, 1, 2, 3, 5, 8, 13, 21,"CWG", 3.1415];
+						</code></pre>
+						<p>wir können auf Arrays Operatinen ausführen</p>
+					</section>
+				</section>
+
+				
 
 				<section data-background-color="#fff"><h2>Scrollbar inverts<br>based on slide bg</h2></section>
 				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
@@ -378,6 +541,8 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
 		<script>
       Reveal.initialize({
         view: 'linear',
