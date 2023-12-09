@@ -21,17 +21,218 @@
 
 			<div class="slides">
 
-				<section><h1>Scroll View</h1></section>
-				<section><p>https://want-u2.com/presentation/gA</p></section>
+				<section>
+					<canvas id="generativeCanvas" style="position: relative; top: 0; left: 0; z-index: -1;"></canvas>
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							const canvas = document.getElementById('generativeCanvas');
+							const ctx = canvas.getContext('2d');
+							const text = 'GENERATIVE ART';
+							const dist = 50;
+
+							const squareV = Math.min(window.innerWidth, window.innerHeight) - 100;
+
+							canvas.width = squareV;
+							canvas.height = squareV;
+							
+							function drawTextRandomly() {
+								if(Reveal.getIndices().h != 0){
+									clearInterval(intervalId);
+									return;
+								}
+								const fontSize = Math.floor(Math.random() * 20) + 15; // Random font size between 15px and 25px
+								const textWidth = fontSize * 9 + Math.floor(Math.random()*20);
+
+								const r = Math.random()*255;
+								const g = Math.random()*255;
+								const b = Math.random()*255;
+
+
+								ctx.font = `${fontSize}px Arial`; // Set random font size and type
+								ctx.fillStyle = 'white'; // Set text color
+								ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+								ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the entire canvas with a background color
+								ctx.fillStyle = 'white'; // Set text color
+
+								const offsetX = Math.random()*3;
+								const offsetY = Math.random()*0.8 + 1
+
+								for (let y = 10; y < canvas.height; y += fontSize * offsetY) { // Adjust vertical spacing based on font size
+									for (let x = -y*offsetX; x < canvas.width; x += textWidth) { // Use text width as offset for continuous stream of words
+										ctx.fillText(text, x, y);
+									}
+								}
+
+								ctx.fillStyle = 'white';
+								// ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+								ctx.fillRect(0, 0, dist, canvas.height);
+								ctx.fillRect(0, 0, canvas.height, dist);
+								ctx.fillRect(0, canvas.height-dist, canvas.width, canvas.height);
+								ctx.fillRect(canvas.width-dist, 0, canvas.width, canvas.height);
+
+								ctx.font = `25px Arial`;
+								ctx.fillStyle = 'black';
+								ctx.fillText('by Jannik Wurche', canvas.width - 250, canvas.height-15);
+							}
+							let intervalId;
+							drawTextRandomly(); // Initially draw text randomly
+
+							// Redraw the text with a new background every 2 seconds
+							intervalId = setInterval(drawTextRandomly, 5000);
+						  });
+					  </script>
+					  
+				</section>
+				<section><p class="r-fit-text" style="color: rgb(80, 80, 255); text-decoration: underline;">want-u2.com/presentation</p></section>
 				
-				<section data-background="indigo">
-					<h2>Scroll triggered fragments</h2>
+				<section>
+					<h2>Tipps für die Vorlesung</h2>
 					<ul>
-						<li class="fragment fade-left">Step one</li>
-						<li class="fragment fade-left">Step two</li>
-						<li class="fragment fade-left">Step three</li>
+						<li class="fragment fade-left">Notizen machen</li>
+						<li class="fragment fade-left">Fragen stellen</li>
+						<li class="fragment fade-left">präzise Fragen = gute Fragen</li>
 					</ul>
 				</section>
+
+				<section>
+				<h1>Übersicht</h1>
+					<ul>
+						<li><a href="#section-i">I. Einführung in digitale Bilder</a></li>
+						<li><a href="#section-ii">II. Generative Art</a></li>
+						<li><a href="#section-iii">III. Techniken</a></li>
+						<li><a href="#section-iv">IV. Einführung in das Programmieren</a></li>
+						<li><a href="#section-v">V. Einführung in p5js</a></li>
+						<li><a href="#section-vi">VI. Coding Session</a></li>
+					</ul>
+				</section>
+				  
+		  
+				<!-- Section 1 -->
+				<section id="section-1">
+					<section>
+						<h1>I. Einführung in digitale Bilder</h1>
+						
+					</section>
+					<section>
+						<h2>1.1 Grundlagen</h2>
+						<ul>
+							<li>Digitale Bilder bestehen aus winzigen quadratischen Einheiten</li>
+							<li>Pixel beinhalten Farbinformationen</li>
+							<li>digitale Bilder sind immer rechteckig</li>
+							<li>können als Tabellen betrachtet werden</li>
+							<li>Auflösung: Anzahl von Pixeln</li>
+							<li>Resolution = Width x Height</li>
+						</ul>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.5, 0.000, 0.5, 1.000)">
+						<p>Beispiel-Bilder:</p>
+						<table>
+							<tr>
+							  <td>
+								<img src="icon.png" alt="Image 1">
+								<ul style="list-style-type: none; padding-left: 0;">
+									<li>Width = 32px</li>
+									<li>Height = 32px</li>
+								</ul>
+							  </td>
+							  <td>
+								<img src="smallImg_256x256.png" alt="Image 2">
+								<ul style="list-style-type: none; padding-left: 0;">
+									<li>Width = 256px</li>
+									<li>Height = 256px</li>
+								</ul>
+							  </td>
+							</tr>
+						</table>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.5, 0.000, 0.5, 1.000)">
+						<!--img src="icon.png" width="640" height="640" style="image-rendering: pixelated"-->
+						<script>
+							var maxScale = Math.min(window.innerWidth, window.innerHeight);
+							maxScale = Math.min(maxScale, 640);
+							document.write(`<img src="icon.png" width="${maxScale}" height="${maxScale}" style="image-rendering: pixelated">`);
+						</script>
+					</section>
+					<section>
+						<p>umwandeln von Farben in Zahlen</p>
+						<h2>1.2 Farbtiefe</h2>
+						<ul>
+							<li>Anzahl der darstellbaren Farben</li>
+							<li>in Bits pro Pixel (bpp) gemessen</li>
+							<li>n-Bit erlauben 2^n Farben</li>
+							<li>üblicherweise 8-Bit, also 256 Farben</li>
+						</ul>
+						<h2>1.3 Farbräume</h2>
+						<ul>
+							<li>BW</li>
+							<li>RGB/A</li>
+							<li>HSV</li> 
+						</ul>
+					</section>
+					<section>
+						<h1>BW</h1>
+						<p>Black & White</p>
+						<ul style="padding: 10px">
+							<li>Pixel hat genau einen Wert</li>
+							<li>erlaubt nur Grauwerte</li>
+						</ul>
+						<p>Bsp: 4 x 4 BW Bild</p>
+						<div style="padding: 10px;">
+							<canvas id="canvasWithValue" width="200" height="200" style="position: absolute;"></canvas>
+							<canvas id="canvasWithoutValue" width="200" height="200" class="fragment fade-out" style="position: absolute;"></canvas>
+						</div>
+						
+						<script>
+							var canvas1 = document.getElementById("canvasWithValue");
+							var canvas2 = document.getElementById("canvasWithoutValue");
+							var ctx1 = canvas1.getContext('2d');
+							var ctx2 = canvas2.getContext('2d');
+
+							var rows = 4;
+							var columns = 4;
+							var cellWidth = canvas1.width / columns;
+							var cellHeight = canvas1.height / rows;
+
+							for (var i = 0; i < rows; i++) {
+								for (var j = 0; j < columns; j++) {
+									var randomValue = Math.floor(Math.random() * 256);
+									
+									// Fill the cell with a random BW value
+									ctx1.fillStyle = 'rgb(' + randomValue + ',' + randomValue + ',' + randomValue + ')';
+									ctx1.fillRect(j * cellWidth, i * cellHeight, cellWidth, cellHeight);
+
+									ctx2.fillStyle = 'rgb(' + randomValue + ',' + randomValue + ',' + randomValue + ')';
+									ctx2.fillRect(j * cellWidth, i * cellHeight, cellWidth, cellHeight);
+
+									if(randomValue < 127){
+										ctx1.fillStyle = '#fff';
+									} else {
+										ctx1.fillStyle = '#000';
+									}
+									
+									ctx1.font = '12px Arial';
+									ctx1.textAlign = 'center';
+									ctx1.fillText(randomValue.toString(), j * cellWidth + cellWidth / 2, i * cellHeight + cellHeight / 2);
+								}
+							}
+						</script>
+					</section>
+				</section>
+		  
+				  <!-- Section 2 -->
+				<section id="section-2">
+				<h1>Section 2</h1>
+				<p>Content for Section 2.</p>
+					<section>
+						<h2>Subsection 2.1</h2>
+						<p>Content for Subsection 2.1.</p>
+					</section>
+					<section>
+						<h2>Subsection 2.2</h2>
+						<p>Content for Subsection 2.2.</p>
+					</section>
+				</section>
+
 				<section data-background-color="#fff"><h2>Scrollbar inverts<br>based on slide bg</h2></section>
 				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
 					<h2>Auto-Animate</h2>
@@ -103,8 +304,11 @@
 					<div id="sketch-container-3"></div>
 				</section>
 				<script src="images.js"></script>
-				<section><h2>The end</h2></section>
-				<section><h3>Or is it?</h3></section>
+				<section><h2>The end</h2>
+					<section></section>
+					<section><h3>Or is it?</h3></section>
+				</section>
+				
 			</div>
 		</div>
 
