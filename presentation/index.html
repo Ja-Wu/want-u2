@@ -101,8 +101,8 @@
 					<ul>
 						<li><a href="#section-i">I. Einführung in digitale Bilder</a></li>
 						<li><a href="#section-ii">II. Generative Art</a></li>
-						<li><a href="#section-iv">III. Einführung in das Programmieren</a></li>
-						<li><a href="#section-iii">IV. Techniken</a></li>
+						<li><a href="#section-iii">III. Einführung in das Programmieren</a></li>
+						<li><a href="#section-iv">IV. Techniken</a></li>
 						<li><a href="#section-v">V. Einführung in p5js</a></li>
 						<li><a href="#section-vi">VI. Coding Session</a></li>
 					</ul>
@@ -927,36 +927,103 @@
 							}
 						</code></pre>
 					</section>
+					<section>
+						<h1>Aufgabe</h1>
+						<p class="left">Gegeben ist eine Liste von Punkten <code>points</code> und ein Bild mit der Breite <code>width</code> sowie der Höhe <code>height</code></p>
+						<p class="left">Entferne alle Punkte aus <code>points</code> die nicht mehr im Bild liegen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let width = 400;
+							let height = 600;
+							let points = [[100,200], [500,2], [60,123], [-1,1], [200, 10]];
+
+							// Schreibe den Code ab hier weiter
+							// Lösung sollte sein: [100,200], [60,123], [200, 10]
+						</code></pre>
+					</section>
 				</section>
 
-				
+				<section id="section-i">
+					<section>
+						<h1>IV. p5js</h1>
+						<a href="https://editor.p5js.org/" target="_blank">https://editor.p5js.org/</a>
+					</section>
+					<section>
+						<h1>4.1 Funktion</h1>
+						<p class="left">Funktionen sind grundlegende Bausteine in der Programmierung, 
+							die einen bestimmten Block von Code zusammenfassen und wiederverwendbar machen. 
+							Sie akzeptieren Eingaben (Argumente), führen Aktionen aus und können eine Ausgabe (Rückgabewert) liefern</p>
+						<p class="left">Funktionen sind in der Informatik viel komplexer als in der Mathematik</p>
+						<p class="left">Benutzen Schlüsselwort <code>function</code>:
+							<pre><code class="hljs javascript" data-trim>
+								function name(){...}
+							</code></pre>
+						</p>
+					</section>
+					<section>
+						<h1>4.1 Setup()</h1>
+						<p class="left">wird automatisch einmal am Anfang des Programms aufgerufen <br>
+						legt initialen Aufbau des Codes fest</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							function setup(){
+								// mache erst einmal nichts
+							}
+						</code></pre>
+						<p class="left">innerhalb dieser Funktion werden wir jetzt Bilder erzeugen</p>
+					</section>
+					<section>
+						<p>ein Bild erzeugen</p>
+						<p class="left">1. Schritt: Canvas erstellen</p>
+						<pre><code class="hljs javascript" data-trim>
+							createCanvas(width, height);
+						</code></pre>
+						<p class="left">Mit dieser Funktion wird eine Leinwand (Canvas) für das Zeichnen von Grafiken erstellt. Die Funktion hat zwei Argumente:<br>
+						<code>width</code> - ist die Breite des Bildes, <code>heigth</code> - ist die Höhe des Bildes</p>
+						<p class="left">2. Schritt: Hintergrundfarbe auswählen</p>
+						<pre><code class="hljs javascript" data-trim>
+							background(color);
+						</code></pre>
+						<p class="left">Mit dieser Funktion bekommen alle Pixel den gleichen Wert. Die Funktion bekommt als Argument die Werte einer Farbe</p>
+					</section>
+					<section>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							function setup(){
+								createCanvas(400, 400);
+								background(0);
+							}
+						</code></pre>
+						<p class="left">Erstellt ein 400 x 400 schwarzes Bild</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							function setup(){
+								createCanvas(700, 300);
+								background(255, 0, 0);
+							}
+						</code></pre>
+						<p class="left">Erstellt ein 700 x 300 rotes Bild</p>
+					</section>
+					<section>
+						<h1>4.2 draw()</h1>
+						<p class="left">Funktion wird kontinuierlich aufgerufen, etwa 60 Mal pro Sekunde <br>
+							Hauptaufgabe ist kontinuierlich Bild zu aktualisieren</p>
 
-				<section data-background-color="#fff"><h2>Scrollbar inverts<br>based on slide bg</h2></section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<h2>Auto-Animate</h2>
-					<p>Scroll triggered auto-animations 😍</p>
-					<div class="r-hstack justify-center">
-						<div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-						<div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-						<div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-					</div>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let color = 0;
+
+							function setup(){
+								createCanvas(400, 400);
+								background(0);
+							}
+
+							function draw(){
+								color++;
+								if(color > 255){
+									color = 0;
+								}
+								background(color);
+							}
+						</code></pre>
+					</section>
 				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div class="r-hstack justify-center">
-						<div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
-						<div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
-						<div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>
-					</div>
-					<h2 style="margin-top: 20px;">Auto-Animate</h2>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div class="r-stack">
-						<div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
-						<div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
-						<div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>
-					</div>
-					<h2 style="margin-top: 20px;">Auto-Animate</h2>
-				</section>
+
 				<section data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)" id="gradient-bg">
 					<h2 data-id="code-title">Code highlights,<br />meet scroll triggers</h2>
 					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
