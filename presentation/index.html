@@ -608,8 +608,7 @@
 					</section>
 					<section>
 						<p class="left">7. Mehrdimensionale Arrays:</p>
-						<p class="left">In einem Array sind Arrays <br>
-						Bilder sind 2-dimensionale Arrays</p>
+						<p class="left">In einem Array sind Arrays</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let multiArray = [[0,1], [10,21], [33,5]];
 							console.log(multiArray[1]);
@@ -849,7 +848,7 @@
 						<p class="left">Du hast ein Bild mit den Abmessungen width (Breite) und height (Höhe). Teile dieses Bild in Quadrate mit einer Seitenlänge von laenge.</p>
 						<p class="left" style="font-size: 20px;">
 							1. Fülle das points Array mit den Koordinaten der oberen linken Ecken der Quadrate. <br>
-							2. Die erste Ecke (links oben) hat die Koordinaten [0, 0]
+							2. Die erste Ecke (links oben) hat die Koordinaten [0, 0] <br>
 							3. Die Reihenfolge der Koordinaten spielt keine Rolle</p>
 						<pre>
 							<code class="hljs javascript" data-trim data-line-numbers>
@@ -863,6 +862,70 @@
 								// Tipp: verwende Schleifen
 							</code>
 						</pre>
+					</section>
+					<section>
+						<h1>3.5 Konditionale Anweisung</h1>
+						<ul>
+							<li>Code basierend auf Bedingungen auszuführen oder zu überspringen</li>
+							<li>Verzweigungen in einem Programm</li>
+						</ul>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							if(Bedingung){
+								// führe diesen Code aus wenn Bedingung wahr ist
+							}
+						</code></pre>
+					</section>
+					<section>
+						<p>wenn X, dann Y sonst Z</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							if(Bedingung){
+								// führe diesen Code aus wenn Bedingung wahr ist
+							} else {
+								// führe diesen Code aus wenn Bedingung falsch ist
+							}
+						</code></pre>
+						<p>ganz viele Verzweigungen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							if(Bedingung1){
+								// führe diesen Code aus wenn Bedingung1 wahr ist
+							} else if(Bedingung2) {
+								// führe diesen Code aus wenn Bedingung1 falsch ist
+								// und Bedingung2 wahr ist
+							} else {
+								// führe diesen Code aus wenn beide Bedeutungen falsch sind
+							}
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let x = 1;
+
+							if(x <= 0){
+								console.log("x ist nicht positiv");
+							} else {
+								console.log("x ist positiv");
+							}
+						</code></pre>
+						<p class="left">Ausgabe:</p>
+						<pre><code class="hljs javascript" data-trim>
+							x ist positiv
+						</code></pre>
+					</section>
+					<section>
+						<p class="left" style="font-size: 27px;">Gegeben ist ein Array <code>arr</code> mit Zahlen und eine Zahl <code>number</code><br>
+						Teile <code>number</code> durch jede Zahl in <code>arr</code> und speichere das Ergbnis in einem Array</p>
+						<p class="left">Achtung, wir können nicht durch 0 teilen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let arr = [1,10,15,0,-2,-100];
+							let number = 100;
+							let result = [];
+
+							for(let i=0; i&lt;arr.length; i++){
+								if(arr[i] != 0){  // durch 0 teilen ist nicht möglich
+									result.push(number/arr[i]);
+								}
+							}
+						</code></pre>
 					</section>
 				</section>
 
