@@ -577,15 +577,21 @@
 					</section>
 					<section>
 						<p class="left">5. Entfernen von Elementen:</p>
-						<p class="left">Entfernt das letzte Element</p>
+						<p class="left"><code>.pop()</code> Entfernt das letzte Element</p>
+						<p class="left"><code>.splice(i, n)</code> Entfernt n Elemente ab Stelle i</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let zahlen = [1,2,3,4];
 							zahlen.pop();
 							console.log(zahlen);
+
+							let numbers = [1,2,3,4];
+							numbers.splice(2, 1);
+							console.log(numbers);
 						</code></pre>
 						Ausgabe:
 						<pre><code class="hljs javascript" data-trim>
 							[1,2,3]
+							[1,2,4]
 						</code></pre>
 					</section>
 					<section>
@@ -632,10 +638,8 @@
 							console.log(multiArray[0].length);
 							console.log(zahlen[1] + multiArray[1][2]);
 
+							multiArray.splice(0,1);
 							multiArray.pop();
-							multiArray.pop();
-							multiArray.push(100);
-							multiArray[0].pop();
 							console.log(multiArray);
 						</code></pre>
 					</section>
@@ -842,9 +846,21 @@
 					</section>
 					<section>
 						<h1>Aufgabe</h1>
+						<p class="left">Du hast ein Bild mit den Abmessungen width (Breite) und height (Höhe). Teile dieses Bild in Quadrate mit einer Seitenlänge von laenge.</p>
+						<p class="left" style="font-size: 20px;">
+							1. Fülle das points Array mit den Koordinaten der oberen linken Ecken der Quadrate. <br>
+							2. Die erste Ecke (links oben) hat die Koordinaten [0, 0]
+							3. Die Reihenfolge der Koordinaten spielt keine Rolle</p>
 						<pre>
 							<code class="hljs javascript" data-trim data-line-numbers>
-								
+								let width = 1920;	// Bildbreite
+								let height = 1080;	// Bildhöhe
+
+								let laenge = 60;	// Seitenlönge
+								let points = [];	// Array mit Koordinaten
+
+								// Schreibe den Code hier, um das 'points' Array zu füllen
+								// Tipp: verwende Schleifen
 							</code>
 						</pre>
 					</section>
