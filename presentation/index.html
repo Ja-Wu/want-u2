@@ -640,7 +640,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<h1>digitale Bilder</h1>
+						<h1>3.3 digitale Bilder</h1>
 						<p>Vortsetzung</p>
 						<p class="left">Bilder werden mit Arrays repräsentiert <br>
 						Bsp: ein 3x3 Bild mit Grauwerten</p>
@@ -776,6 +776,77 @@
 							colorString += ']';
 							document.getElementById('colorValuesDisplay').innerText = colorString;
 						</script>
+					</section>
+					<section>
+						<h1>3.4 Loops</h1>
+						<p class="left">angenommen wir wollen Teile vom Code n-mal wiederholen <br>
+						aber n ist eine große Zahl oder gar nicht bekannt <br>
+						copy und paste geht dann nicht</p>
+						<p class="left">Loops automatisieren wiederkehrende Aufgaben, indem sie über eine festgelegte Datenmenge iterieren oder Code eine bestimmte Anzahl von Malen ausführen.</p>
+					</section>
+					<section>
+						<h1>3.4.1 While-Loops</h1>
+						<p class="left">Die <code>while</code>-Schleife führt Code aus, solange eine spezifische Bedingung wahr ist.</p>
+						<p class="left">Struktur: <pre><code class="hljs javascript" data-trim>while (Bedingung) { ... }</code></pre> </p>
+						<p class="left">Beispiel einer <code>while</code>-Schleife:</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								let count = 0;
+								while (count < 5) {
+									// Code, der so lange wiederholt wird, bis count 5 erreicht
+									console.log('Count: ' + count);
+									count++;
+								}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h1>3.4.2 For-Loops</h1>
+						<p class="left">Die <code>for</code>-Schleife ist ideal für die Iteration über einen bekannten Wertebereich oder Elemente in einem Array.</p>
+						<p class="left">Struktur: <pre><code class="hljs javascript" data-trim>for (Initialisierung; Bedingung; Iteration) { ... }</code></pre> </p>
+						<p class="left">Beispiel einer <code>for</code>-Schleife:</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								for (let i = 0; i &lt; 5; i++) {
+									// Code, der 5 Mal wiederholt wird
+									console.log('Iteration ' + (i + 1));
+								}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p class="left">For-Loops und Arrays:</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								let array = [0, 28, 56, 127, 255];
+								for (let i = 0; i &lt; array.length; i++) {
+									// Code wird für jedes Element in array wiederholt
+									let aktuellesElement = array[i];
+									console.log(i + ': ' + aktuellesElement);
+								}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p class="left">For-Loops und Arrays:</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								let array = [[255,0,0], [0,255,0], [0,0,255]];
+								for (let i = 0; i &lt; array.length; i++) {
+									for (let j = 0; j &lt; array[i].length; j++){
+										console.log('(' + i + "," + j + "): " + array[i][j]);
+									}
+								}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h1>Aufgabe</h1>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								
+							</code>
+						</pre>
 					</section>
 				</section>
 
