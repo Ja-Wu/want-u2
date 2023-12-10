@@ -336,123 +336,446 @@
 					</section>
 
 					<section>
+						<p>Programmier-Umgebung:</p>
+						<a href="https://editor.p5js.org/" target="_blank">https://editor.p5js.org/</a>
+					</section>
+
+					<section>
+						<p>Das erste Programm</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							console.log("hello world!");
+						</code></pre>
+						<p class="left">Gibt "hello world!" in der Konsole aus</p>
+					</section>
+
+					<section>
 						<h1>3.2 Schlüsselwörter</h1>
 						<p>reservierte Wörter, die spezielle Bedeutungen und Funktionen innerhalb des Codes haben</p>
 					</section>
 					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<p style="text-decoration: underline;">Variable</p>
+						<p style="text-decoration: underline;">3.2.1 Variable</p>
 						<p>Speicherort für Daten im Computer</p>
-						<p class="left">wie eine Box, in der man Dinge aufbewahren kann <br> Box hat einen Namen und einen Inhalt</p>
-						<p class="left">anlegen einer Variable:</p>
+						<p class="left">wie eine Box, in der man Dinge aufbewahren kann</p>
+						<p class="left">Anlegen einer Variable:</p>
 						<pre><code class="hljs javascript">let name = wert;</code></pre>
-						<p class="left">Bsp.: Wir haben 2 Äpfel, 10 Kirschen und eine Banane</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers><script type="text/template">
-							let apple = 2;
-							let cherry = 10;
-							let banana = 1;
-						</script></code></pre>
-						<p class="left">Die Variable mit dem Namen 'apple' hat den Wert 2, die Variable names 'cherry' hat den Wert 10 und 'banana' hat den Wert 1.</p>
+						<p class="left">Wir können auf den gespeicherten Wert zugreifen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let meineSchule = "CWG";
+							console.log(meineSchule);
+						</code></pre>
 					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<p style="text-decoration: underline;">Variable</p>
+					<section>
+						<p style="text-decoration: underline;">3.2.1 Variable</p>
+						<p>Speicherort für Daten im Computer</p>
+						<p class="left">Arbeiten mit Zahlen</p>
+						<p class="left">Bsp.: Wir haben 2 Äpfel, 10 Kirschen und einen halben Kuchen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers><script type="text/template">
+							let apfel = 2;
+							let kirsche = 10;
+							let kuchen = 0.5;
+
+							console.log(apple);
+							console.log(cherry);
+							console.log(cake);
+						</script></code></pre>
+					</section>
+					<section>
 						<p>basis Operationen</p>
 						<p class="left">Arithmetische Operationen</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let a = 10;
 							let b = 5;
+
 							let summe = a + b; 		// Addition
 							let differenz = a - b; 	// Subtraktion
 							let produkt = a * b; 	// Multiplikation
 							let quotient = a / b; 	// Division
 							let rest = a % b; 		// Modulo (Rest)
+
+							console.log(summe);
+							console.log(differenz);
+							console.log(produkt);
+							console.log(quotient);
+							console.log(rest);
 						</code></pre>
 					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<p style="text-decoration: underline;">Variable</p>
+					<section>
+						<p>basis Operationen</p>
+						<p class="left">Klammern - wie in Mathe</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let a = 2+6/2;
+							let b = 2+(6/2);
+							let c = (2+6)/2;
+
+							console.log(a);
+							console.log(b);
+							console.log(c);
+						</code></pre>
+					</section>
+					<section>
 						<p>basis Operationen</p>
 						<p class="left">Erhöhen und Verringern</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let anzahl = 0;
-							let n = 100;
+							
 							anzahl++; // Inkrement um 1
-							anzahl--; // Dekrement um 1
+							console.log(anzahl);
 
-							anzahl += n; // Erhöhe um n
-							anzahl -= n; // Verringere um n
+							anzahl--; // Dekrement um 1
+							console.log(anzahl);
+
+							let m = 50
+							let n = 100;
+
+							m += n; // Erhöhe m um n
+							console.log(m);
+
+							m -= n; // Verringere m um n
+							console.log(m);
 
 							anzahl = anzahl + n;	// Äquivalent zu: anzahl += n;
 							anzahl = anzahl - n;	// Äquivalent zu: anzahl -= n;
 						</code></pre>
 					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<p style="text-decoration: underline;">Variable</p>
+					<section>
 						<p>basis Operationen</p>
 						<p class="left">Verkettung von Zeichenketten</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let vorname = "Max";
 							let nachname = "Mustermann";
 							let vollerName = vorname + " " + nachname; // Verkettung
+							console.log(vollerName);
 
 							let teil1 = "abcdefghijklm";
 							let teil2 = "nopqrstuvwxyz";
 							let alphabet = teil1 + teil2;
+							console.log(alphabet);
 						</code></pre>
 					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<p style="text-decoration: underline;">Variable</p>
+					<section>
+						<p>basis Operationen</p>
+						<p class="left">Rechnen mit unterschiedlichen Datentypen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let word = "CWG";
+							let zahl = 1;
+
+							console.log("Ich gehe auf das " + word);
+							console.log(1 + zahl);
+							console.log(word + zahl);
+						</code></pre>
+						<p class="left">Achtung, nicht alles ist definiert!</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers data-ln-start-from="7">
+							console.log(word / zahl);
+						</code></pre>
+					</section>
+					<section>
 						<p>basis Operationen</p>
 						<p class="left">Vergleiche</p>
+						<p class="left">Vergleiche werden zu wahr <span style="color: rgb(220, 133, 174);">true</span> oder zu falsch <span style="color: rgb(220, 133, 174);">false</span> ausgewertet.</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let x = 10;
 							let y = 5;
+
+							console.log(x === y); 	// hat x den gleichen Wert wie y
+							console.log(x > y);		// hat x einen größeren Wert wie y
+
 							let istGleich = x === y;
 							let istKleiner = x < y;
 							let istKleinerGleich = x <= y;
+
+							console.log(istGleich);
+							console.log(istKleiner);
+							console.log(istKleinerGleich);
 						</code></pre>
 					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<p style="text-decoration: underline;">Variable</p>
+					<section>
 						<p>basis Operationen</p>
 						<p class="left">Logische Operationen</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let istWochenende = false;
 							let istFeiertag = true;
-							let istWochentag = !istWochenende;
-							let keineSchule = istWochenende || istFeiertag;
+							let keineSchule = istWochenende || istFeiertag; // ODER
 
 							let hatFahrerlaubnis = true;
 							let hatAuto = false;
-							let kannAutofahren = hatFahrerlaubnis && hatAuto;
+							let kannAutofahren = hatFahrerlaubnis && hatAuto; // UND
 						</code></pre>
 					</section>
 					<section>
 						<h4>Aufgabe</h4>
-						<p>Welche Werte haben x,y und z?</p>
+						<p>Welche Werte haben x,y und z am Ende vom Program?</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let year = 2023;
-							let dozen = 12;
 							let black = 0;
+							let gray = 127;
 							let white = 255;
 
-							year++;
-							white += black;
+							let farbe = 1;
 
-							let x = year - dozen;
-							let y = white%2;
-							let z = white/black;
+							farbe += 2*gray;
+							let x = farbe === white;
+							farbe++;
+							let y = (farbe%2)===black;
+							let z = ((farbe/2)-1)<=gray;
 						</code></pre>
 					</section>
 					<section>
-						<p style="text-decoration: underline;">Arrays</p>
+						<p style="text-decoration: underline;">3.2.2 Arrays</p>
 						<ul>
 							<li>Wie Listen</li>
 							<li>notiert mit ekigen Klammern</li>
 							<li>Elemente mit Komma getrennt</li>
+							<li>wir können auf Arrays Operatinen ausführen</li>
 						</ul>
-						<pre><code class="hljs javascript" data-trim>
-							let array = [1, 1, 2, 3, 5, 8, 13, 21,"CWG", 3.1415];
+						<p class="left">1. Arrays erstellen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let zahlen = [1, 2, 3, 4, 5]; // Ein Array mit Zahlen
+							let namen = ['Max', 'Anna', 'Tim']; // Ein Array mit Zeichenketten
+							let gemischt = [1, 'Apfel', true]; // Ein Array mit gemischten Datentypen
+							let leer = []; // Ein leeres Array
 						</code></pre>
-						<p>wir können auf Arrays Operatinen ausführen</p>
+					</section>
+					<section>
+						<p class="left">2. Zugriff auf Elemente:</p>
+						<ul>
+							<li>Zugriff auf das i-te Element mit: <pre><code class="hljs javascript" data-trim>
+								arrayName[i];
+							</code></pre></li>
+							<li>Index beginnt bei 0</li>
+							<li>Zugriffe am Indexe die größer sind als die Array-Länge resultiert in Fehler</li>
+						</ul>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let zahlen = [10, 20, 30, 40, 50];
+							let erstesElement = zahlen[0]; // Das erste Element
+							let drittesElement = zahlen[2]; // Das dritte Element
+							let zuHoherIndex = zahlen[5]; // Das sechste Element gibt es nicht
+						</code></pre>
+					</section>
+					<section>
+						<p class="left">3. Ändern von Elementen:</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let zahlen = [4,4,3,4];
+							zahlen[2] = 4;
+							console.log(zahlen)
+						</code></pre>
+						Ausgabe:
+						<pre><code class="hljs javascript" data-trim>
+							[4,4,4,4]
+						</code></pre>
+					</section>
+					<section>
+						<p class="left">4. Hinzufügen von Elementen:</p>
+						<p class="left">Fügt am Ende des Arrays hinzu</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let zahlen = [1,2,3];
+							zahlen.push(4);
+							console.log(zahlen);
+						</code></pre>
+						Ausgabe:
+						<pre><code class="hljs javascript" data-trim>
+							[1,2,3,4]
+						</code></pre>
+					</section>
+					<section>
+						<p class="left">5. Entfernen von Elementen:</p>
+						<p class="left">Entfernt das letzte Element</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let zahlen = [1,2,3,4];
+							zahlen.pop();
+							console.log(zahlen);
+						</code></pre>
+						Ausgabe:
+						<pre><code class="hljs javascript" data-trim>
+							[1,2,3]
+						</code></pre>
+					</section>
+					<section>
+						<p class="left">6. Länge des Arrays:</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let zahlen = [10, 11, 12, 13, 14];
+							let laenge = zahlen.length;
+							console.log(laenge);
+						</code></pre>
+						Ausgabe:
+						<pre><code class="hljs javascript" data-trim>
+							5
+						</code></pre>
+					</section>
+					<section>
+						<p class="left">7. Mehrdimensionale Arrays:</p>
+						<p class="left">In einem Array sind Arrays <br>
+						Bilder sind 2-dimensionale Arrays</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let multiArray = [[0,1], [10,21], [33,5]];
+							console.log(multiArray[1]);
+							console.log(multiArray[1][0]);
+							console.log(multiArray.length);
+							multiArray.pop();
+							console.log(multiArray);
+						</code></pre>
+						Ausgabe:
+						<pre><code class="hljs javascript" data-trim>
+							[10,21]
+							10
+							3
+							[[0,1], [10,21]]
+						</code></pre>
+					</section>
+					<section>
+						<h1>Aufgabe</h1>
+						<p class="left">Was sind die Ausgaben?</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let zahlen = [10, 11, 12, 13, 14];
+							let multiArray = [[0,0,0], [127,127,127], [255,255,255]];
+
+							console.log(zahlen.length - multiArray.length);
+							console.log(zahlen[3]);
+							console.log(multiArray[0].length);
+							console.log(zahlen[1] + multiArray[1][2]);
+
+							multiArray.pop();
+							multiArray.pop();
+							multiArray.push(100);
+							multiArray[0].pop();
+							console.log(multiArray);
+						</code></pre>
+					</section>
+					<section>
+						<h1>digitale Bilder</h1>
+						<p>Vortsetzung</p>
+						<p class="left">Bilder werden mit Arrays repräsentiert <br>
+						Bsp: ein 3x3 Bild mit Grauwerten</p>
+
+						<table style="vertical-align: top; padding: 20px;">
+							<tr>
+								<td style="vertical-align: top;">Bild</td>
+								<td style="vertical-align: top;">als Array:</td>
+							</tr>
+							<tr>
+								<td>
+									<div style="padding: 10px;">
+										<canvas id="grayImg" width="200" height="200"></canvas>
+									</div>
+								</td>
+								<td style="vertical-align: top;">
+									<p id="valuesDisplay"></p>
+								</td>
+							</tr>
+						</table>
+						
+						<script>
+							var canvas1 = document.getElementById("grayImg");
+							var ctx1 = canvas1.getContext('2d');
+
+							var rows = 3;
+							var columns = 3;
+							var cellWidth = canvas1.width / columns;
+							var cellHeight = canvas1.height / rows;
+
+							let values = []
+							let resolution = rows*columns-1;
+							for(let i=0; i<=resolution; i++){
+								values.push(Math.round(i/resolution*255));
+							}
+
+							k = 0;
+							let valueString = "[";
+							for (var i = 0; i < rows; i++) {
+								valueString += '[';
+								for (var j = 0; j < columns; j++) {
+									var randomValue = values[k];
+									valueString += randomValue;
+									if (j<columns-1){
+										valueString += ', ';
+									}
+									k++;
+									
+									// Fill the cell with a random BW value
+									ctx1.fillStyle = 'rgb(' + randomValue + ',' + randomValue + ',' + randomValue + ')';
+									ctx1.fillRect(j * cellWidth, i * cellHeight, cellWidth, cellHeight);
+
+									if(randomValue < 127){
+										ctx1.fillStyle = '#fff';
+									} else {
+										ctx1.fillStyle = '#000';
+									}
+									
+									ctx1.font = '16px Arial';
+									ctx1.textAlign = 'center';
+									ctx1.fillText(randomValue.toString(), j * cellWidth + cellWidth / 2, i * cellHeight + cellHeight / 2);
+								}
+								valueString += ']';
+								if(i<rows-1){valueString += ',\n';}
+							}
+							valueString += ']';
+							document.getElementById('valuesDisplay').innerText = valueString;
+						</script>
+					</section>
+
+					<section>
+						<h1>digitale Bilder</h1>
+						Bsp: ein 3x3 Bild mit RGB-Farben</p>
+
+						<table style="vertical-align: top; padding: 20px;">
+							<tr>
+								<td style="vertical-align: top;">Bild</td>
+								<td style="vertical-align: top;">als Array:</td>
+							</tr>
+							<tr>
+								<td>
+									<div style="padding: 10px;">
+										<canvas id="colorImg" width="200" height="200"></canvas>
+									</div>
+								</td>
+								<td style="vertical-align: top; font-size: 30px;">
+									<p id="colorValuesDisplay"></p>
+								</td>
+							</tr>
+						</table>
+						
+						<script>
+							var canvas1 = document.getElementById("colorImg");
+							var ctx1 = canvas1.getContext('2d');
+
+							var rows = 3;
+							var columns = 3;
+							var cellWidth = canvas1.width / columns;
+							var cellHeight = canvas1.height / rows;
+
+							let colorValues = [];
+
+							for(let i=0; i<rows*columns; i++){
+								colorValues.push([Math.round(Math.random()*255), Math.round(Math.random()*255), Math.round(Math.random()*255)]);
+							}
+							k = 0;
+							let colorString = "[";
+							for (var i = 0; i < rows; i++) {
+								colorString += '[';
+								for (var j = 0; j < columns; j++) {
+									var randomValue = colorValues[k];
+									colorString += '[' + randomValue + ']';
+									if (j<columns-1){
+										colorString += ', ';
+									}
+									k++;
+									
+									// Fill the cell with a random BW value
+									ctx1.fillStyle = 'rgb(' + randomValue[0] + ',' + randomValue[1] + ',' + randomValue[2] + ')';
+									ctx1.fillRect(j * cellWidth, i * cellHeight, cellWidth, cellHeight);
+
+									ctx1.fillStyle = '#000';
+									ctx1.font = '16px Arial';
+									ctx1.textAlign = 'center';
+									
+									ctx1.fillText(randomValue[0], j * cellWidth + 15, i * cellHeight + 30);
+									ctx1.fillText(randomValue[1], j * cellWidth + 15, i * cellHeight + 45);
+									ctx1.fillText(randomValue[2], j * cellWidth + 15, i * cellHeight + 60);
+								}
+								colorString += ']';
+								if(i<rows-1){colorString += ',\n';}
+							}
+							colorString += ']';
+							document.getElementById('colorValuesDisplay').innerText = colorString;
+						</script>
 					</section>
 				</section>
 
