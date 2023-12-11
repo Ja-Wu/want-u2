@@ -416,56 +416,23 @@
 						<p>basis Operationen</p>
 						<p class="left">Erhöhen und Verringern</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let anzahl = 0;
-							
-							anzahl++; // Inkrement um 1
-							console.log(anzahl);
+							let zahl = 0;
+							let n = 5;
 
-							anzahl--; // Dekrement um 1
-							console.log(anzahl);
+							zahl += 1;	// Erhöhe zahl um 1
+							console.log(zahl);
 
-							let m = 50
-							let n = 100;
+							zahl -= 6;	// Verringere zahl um 9
+							console.log(zahl)
 
-							m += n; // Erhöhe m um n
-							console.log(m);
-
-							m -= n; // Verringere m um n
-							console.log(m);
-
-							anzahl = anzahl + n;	// Äquivalent zu: anzahl += n;
-							anzahl = anzahl - n;	// Äquivalent zu: anzahl -= n;
+							zahl += n;	// Erhöhe zahl um n
+							console.log(zahl)
 						</code></pre>
-					</section>
-					<section>
-						<p>basis Operationen</p>
-						<p class="left">Verkettung von Zeichenketten</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let vorname = "Max";
-							let nachname = "Mustermann";
-							let vollerName = vorname + " " + nachname; // Verkettung
-							console.log(vollerName);
-
-							let teil1 = "abcdefghijklm";
-							let teil2 = "nopqrstuvwxyz";
-							let alphabet = teil1 + teil2;
-							console.log(alphabet);
-						</code></pre>
-					</section>
-					<section>
-						<p>basis Operationen</p>
-						<p class="left">Rechnen mit unterschiedlichen Datentypen</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let word = "CWG";
-							let zahl = 1;
-
-							console.log("Ich gehe auf das " + word);
-							console.log(1 + zahl);
-							console.log(word + zahl);
-						</code></pre>
-						<p class="left">Achtung, nicht alles ist definiert!</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers data-ln-start-from="7">
-							console.log(word / zahl);
+						<p class="left">Ausgabe</p>
+						<pre><code class="hljs javascript" data-trim>
+							1
+							-5
+							0
 						</code></pre>
 					</section>
 					<section>
@@ -513,7 +480,7 @@
 
 							farbe += 2*gray;
 							let x = farbe === white;
-							farbe++;
+							farbe += 1;
 							let y = (farbe%2)===black;
 							let z = ((farbe/2)-1)<=gray;
 						</code></pre>
@@ -528,9 +495,8 @@
 						</ul>
 						<p class="left">1. Arrays erstellen</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let zahlen = [1, 2, 3, 4, 5]; // Ein Array mit Zahlen
-							let namen = ['Max', 'Anna', 'Tim']; // Ein Array mit Zeichenketten
-							let gemischt = [1, 'Apfel', true]; // Ein Array mit gemischten Datentypen
+							let zahlen = [1, 2, 3, 4, 5];
+							let bool = [true, false, false, true]; 
 							let leer = []; // Ein leeres Array
 						</code></pre>
 					</section>
@@ -538,7 +504,7 @@
 						<p class="left">2. Zugriff auf Elemente:</p>
 						<ul>
 							<li>Zugriff auf das i-te Element mit: <pre><code class="hljs javascript" data-trim>
-								arrayName[i];
+								array[i];
 							</code></pre></li>
 							<li>Index beginnt bei 0</li>
 							<li>Zugriffe am Indexe die größer sind als die Array-Länge resultiert in Fehler</li>
@@ -598,12 +564,15 @@
 						<p class="left">6. Länge des Arrays:</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let zahlen = [10, 11, 12, 13, 14];
-							let laenge = zahlen.length;
-							console.log(laenge);
+							console.log(zahlen.length);
+
+							zahlen.pop();
+							console.log(zahlen.length);
 						</code></pre>
 						Ausgabe:
 						<pre><code class="hljs javascript" data-trim>
 							5
+							4
 						</code></pre>
 					</section>
 					<section>
@@ -798,7 +767,7 @@
 								while (count < 5) {
 									// Code, der so lange wiederholt wird, bis count 5 erreicht
 									console.log('Count: ' + count);
-									count++;
+									count += 1;
 								}
 							</code>
 						</pre>
@@ -810,9 +779,9 @@
 						<p class="left">Beispiel einer <code>for</code>-Schleife:</p>
 						<pre>
 							<code class="hljs javascript" data-trim data-line-numbers>
-								for (let i = 0; i &lt; 5; i++) {
+								for (let i = 0; i &lt; 5; i += 1) {
 									// Code, der 5 Mal wiederholt wird
-									console.log('Iteration ' + (i + 1));
+									console.log('Iteration ' + i);
 								}
 							</code>
 						</pre>
@@ -822,11 +791,39 @@
 						<pre>
 							<code class="hljs javascript" data-trim data-line-numbers>
 								let array = [0, 28, 56, 127, 255];
-								for (let i = 0; i &lt; array.length; i++) {
+								for (let i = 0; i &lt; array.length; i += 1) {
 									// Code wird für jedes Element in array wiederholt
-									let aktuellesElement = array[i];
-									console.log(i + ': ' + aktuellesElement);
+									console.log(i + ': ' + array[i]);
 								}
+							</code>
+						</pre>
+						<p class="left">Ausgabe:</p>
+						<pre>
+							<code class="hljs javascript" data-trim>
+								0: 0 
+								1: 28 
+								2: 56 
+								3: 127 
+								4: 255 
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p class="left">Bsp: auf jedes Zahl einen Wert addieren</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								let zahlen = [1,3,5,7,9];
+								let wert = 1;
+								for (let i = 0; i &lt; zahlen.length; i += 1) {
+									zahlen[i] += wert;
+								}
+								console.log(zahlen);
+							</code>
+						</pre>
+						<p class="left">Ausgabe:</p>
+						<pre>
+							<code class="hljs javascript" data-trim>
+								[2,4,6,8,10]
 							</code>
 						</pre>
 					</section>
@@ -834,10 +831,44 @@
 						<p class="left">For-Loops und Arrays:</p>
 						<pre>
 							<code class="hljs javascript" data-trim data-line-numbers>
-								let array = [[255,0,0], [0,255,0], [0,0,255]];
-								for (let i = 0; i &lt; array.length; i++) {
-									for (let j = 0; j &lt; array[i].length; j++){
+								let array = [[255,80], [10,255,20], [4,3,2,1,0]];
+								for (let i = 0; i &lt; array.length; i += 1) {
+									for (let j = 0; j &lt; array[i].length; j += 1){
 										console.log('(' + i + "," + j + "): " + array[i][j]);
+									}
+								}
+							</code>
+						</pre>
+						<p class="left">Ausgabe:</p>
+						<pre>
+							<code class="hljs javascript" data-trim>
+								(0,0): 255 
+								(0,1): 80 
+								(1,0): 10 
+								(1,1): 255 
+								(1,2): 20 
+								(2,0): 4 
+								(2,1): 3 
+								(2,2): 2 
+								(2,3): 1 
+								(2,4): 0 
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p class="left">Bsp: Gegeben ist ein RGB-Bild als Array. Verringert die Blau-Werte um 50%</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								let img = [
+									[[10,20,30], [20,30,40], [30,40,50]],
+									[[40,50,60], [60,70,80], [70,80,90]],
+									[[80,90,100], [90,100,110], [100,110,120]]
+								];
+								let height = img.length;
+								let width = img[0].length;
+								for (let y = 0; y &lt; height; y += 1) {
+									for (let x = 0; x &lt; width; x += 1){
+										img[x][y][2] /= 2;
 									}
 								}
 							</code>
