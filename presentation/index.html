@@ -123,7 +123,6 @@
 							<li>digitale Bilder sind immer rechteckig</li>
 							<li>können als Tabellen betrachtet werden</li>
 							<li>Auflösung: Anzahl von Pixeln</li>
-							<li>Resolution = Width x Height</li>
 						</ul>
 					</section>
 					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.5, 0.000, 0.5, 1.000)">
@@ -342,7 +341,7 @@
 
 					<section>
 						<p>Das erste Programm</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
+						<pre><code class="hljs javascript" data-trim>
 							console.log("hello world!");
 						</code></pre>
 						<p class="left">Gibt "hello world!" in der Konsole aus</p>
@@ -374,9 +373,9 @@
 							let kirsche = 10;
 							let kuchen = 0.5;
 
-							console.log(apple);
-							console.log(cherry);
-							console.log(cake);
+							console.log(apfel);
+							console.log(kirsche);
+							console.log(kuchen);
 						</script></code></pre>
 					</section>
 					<section>
@@ -422,7 +421,7 @@
 							zahl += 1;	// Erhöhe zahl um 1
 							console.log(zahl);
 
-							zahl -= 6;	// Verringere zahl um 9
+							zahl -= 6;	// Verringere zahl um 6
 							console.log(zahl)
 
 							zahl += n;	// Erhöhe zahl um n
@@ -458,6 +457,10 @@
 					<section>
 						<p>basis Operationen</p>
 						<p class="left">Logische Operationen</p>
+						<p class="left">logisch ODER  || <br>
+							Verknüpft zwei Ausdrücke und gibt true zurück, wenn MINDESTENS EIN Ausdruck wahr ist.</p>
+						<p class="left">logisch UND  && <br>
+							Verknüpft zwei Ausdrücke und gibt true zurück, wenn BEIDE Ausdrücke wahr sind.</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
 							let istWochenende = false;
 							let istFeiertag = true;
@@ -809,7 +812,7 @@
 						</pre>
 					</section>
 					<section>
-						<p class="left">Bsp: auf jedes Zahl einen Wert addieren</p>
+						<p class="left">Bsp: auf jede Zahl im Array wird einen Wert addieren</p>
 						<pre>
 							<code class="hljs javascript" data-trim data-line-numbers>
 								let zahlen = [1,3,5,7,9];
@@ -868,7 +871,7 @@
 								let width = img[0].length;
 								for (let y = 0; y &lt; height; y += 1) {
 									for (let x = 0; x &lt; width; x += 1){
-										img[x][y][2] /= 2;
+										img[y][x][2] /= 2;
 									}
 								}
 							</code>
