@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>p5.js Image</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <meta charset="utf-8" />
+    <style>
+        body {
+          background-color: rgb(150, 130, 110);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+        canvas {
+          border: 12px solid black; /* Optional: Adds a border to the canvas */
+        }
+      </style>
+  </head>
+  <body>
+    <script>
+      // Function to load a specific sketch based on parameter value
+      function loadSketchFromParameter() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const sketchNumber = urlParams.get('sketch');
+        if (sketchNumber >= 1 && sketchNumber <= 7) {
+          const scriptTag = document.createElement('script');
+          scriptTag.setAttribute('src', `sketch${sketchNumber}.js`);
+          document.body.appendChild(scriptTag);
+        } else {
+          console.error('Invalid sketch number. Please provide a number between 1 and 7.');
+        }
+      }
+
+      // Call the function to load sketch based on the parameter
+      loadSketchFromParameter();
+    </script>
+  </body>
+</html>
