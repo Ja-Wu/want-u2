@@ -878,7 +878,6 @@
 							</code>
 						</pre>
 					</section>
-					
 					<section>
 						<p class="left">Bsp: Wir generieren eine zufällige Anzahl an Kreisen</p>
 						<pre>
@@ -902,6 +901,147 @@
 								}
 							</code>
 						</pre>
+					</section>
+					<section>
+						<p class="left">Generiere Rechtecke mit konstanten x-Abstand</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								function setup(){
+									createCanvas(400,400);
+									background(0);
+									fill(255);
+
+									for(let x=0; x &lt; width; x += 40){
+										rect(x, 0, 20, 20);
+									}
+								}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p class="left">Generiere Rechtecke mit konstanten y-Abstand</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								function setup(){
+									createCanvas(400,400);
+									background(0);
+									fill(255);
+
+									for(let y=0; y &lt; height; y += 40){
+										rect(0, y, 20, 20);
+									}
+								}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p class="left">Wir stellen fest:</p>
+						<p class="left">Ein <code>for</code>-Loop generiert eine Reihe von Elementen <br>
+						Idee:</p>
+						<p class="left">Wir generieren für jedes Element in der Reihe eine weitere Reihe von Elementen</p>
+						<pre>
+							<code class="hljs javascript" data-trim data-line-numbers>
+								function setup(){
+									createCanvas(400,400);
+									background(0);
+									fill(255);
+
+									for(let y=0; y&lt;height; y+=40){ // Schleife für die vertikale Position der Rechtecke
+										for(let x=0; x&lt;width; x+=40){ // Schleife für die horizontale Position der Rechtecke
+											rect(x, y, 20, 20); // Zeichnet ein Rechteck an den Koordinaten (x, y)
+										}
+									}
+								}
+							</code>
+						</pre>
+						<p class="left">Es entsteht ein Raster aus Quadraten</p>
+					</section>
+					<section>
+						<h1>Aufagbe</h1>
+						<p class="left">Erstelle ein Bild mit einem Raster von Quadraten<br>
+						Die Seitenlänge der Quadrate soll zufällig zwischen 10 und 40 liegen.
+						Alle Quadrate bekommen die gleiche Seitenlänge und sollen neben einander liegen <br>
+						Jedes Quadrat soll eine zufällige RGB Farbe bekommen<br>
+						</p>
+					</section>
+					<!--
+						Konditionale Statements
+					-->
+
+					<section>
+						<h1>3.5 Konditionale Anweisung</h1>
+						<ul>
+							<li>Code basierend auf Bedingungen auszuführen oder zu überspringen</li>
+							<li>Verzweigungen in einem Programm</li>
+						</ul>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							if(Bedingung){
+								// führe diesen Code aus wenn Bedingung wahr ist
+							}
+						</code></pre>
+					</section>
+					<section>
+						<p>wenn X, dann Y sonst Z</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							if(Bedingung){
+								// führe diesen Code aus wenn Bedingung wahr ist
+							} else {
+								// führe diesen Code aus wenn Bedingung falsch ist
+							}
+						</code></pre>
+						<p>ganz viele Verzweigungen</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							if(Bedingung1){
+								// führe diesen Code aus wenn Bedingung1 wahr ist
+							} else if(Bedingung2) {
+								// führe diesen Code aus wenn Bedingung1 falsch ist
+								// und Bedingung2 wahr ist
+							} else {
+								// führe diesen Code aus wenn beide Bedeutungen falsch sind
+							}
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							let x = 1;
+
+							if(x <= 0){
+								console.log("x ist nicht positiv");
+							} else {
+								console.log("x ist positiv");
+							}
+						</code></pre>
+						<p class="left">Ausgabe:</p>
+						<pre><code class="hljs javascript" data-trim>
+							x ist positiv
+						</code></pre>
+					</section>
+					<section>
+						<p class="left">Wir generieren ein Raster aus Quadraten, wobei jedes Quadrat eine 50% Chance hat nicht gemalt zu werden.</p>
+						<pre><code class="hljs javascript" data-trim data-line-numbers>
+							function setup(){
+								createCanvas(600,600);
+								background(0);
+
+								let laenge = 50;
+								for(let y=0; y&lt;height; y+=laenge){
+									for(let x=0; x&lt;width; x+=laenge){
+										if(random(0,100) >= 50){
+											rect(x,y,laenge,laenge);
+										}
+									}
+								}
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h4>Aufgabe</h4>
+						<p class="left">Erstelle ein 600x600 Bild mit einem Raster aus Quadraten mit einer Seitenlänge von 50 (siehe letzte Folie).</p>
+						<p class="left">1. Bestimme drei zufällige Farben und weise jedem Quadrat zufällig einer dieser drei Farben zu.</p>
+						<p class="left">Tipp: Verwende <pre><code class="hljs javascript" data-trim>if(){} else if(){} else{}</code></pre></p>
+						<h4>Aufgabe</h4>
+						<p class="left">2. Wähle zufällig zwischen Quadraten und Kreise</p>
+					</section>
 					</section>
 					<!--
 						Arrays:
@@ -1000,36 +1140,31 @@
 						<p class="left">3.11.7 Mehrdimensionale Arrays:</p>
 						<p class="left">In einem Array sind Arrays</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let multiArray = [[0,1], [10,21], [33,5]];
-							console.log(multiArray[1]);
-							console.log(multiArray[1][0]);
+							let multiArray = [[10,20,30], [0,0,0], [3,6,9], [255,0,255]];
+							console.log(multiArray[2]);
+							console.log(multiArray[2][0]);
 							console.log(multiArray.length);
 							multiArray.pop();
 							console.log(multiArray);
 						</code></pre>
 						Ausgabe:
 						<pre><code class="hljs javascript" data-trim>
-							[10,21]
-							10
+							[3,6,9]
 							3
-							[[0,1], [10,21]]
+							4
+							[[10,20,30], [0,0,0], [3,6,9]]
 						</code></pre>
 					</section>
 					<section>
-						<h1>Aufgabe</h1>
-						<p class="left">Was sind die Ausgaben?</p>
+						<p class="left">Generiere eine Liste mit zufälligen RGB-Werten</p>
 						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let zahlen = [10, 11, 12, 13, 14];
-							let multiArray = [[0,0,0], [127,127,127], [255,255,255]];
-
-							console.log(zahlen.length - multiArray.length);
-							console.log(zahlen[3]);
-							console.log(multiArray[0].length);
-							console.log(zahlen[1] + multiArray[1][2]);
-
-							multiArray.splice(0,1);
-							multiArray.pop();
-							console.log(multiArray);
+							let colors = []
+							for(let i=0; i&lt;5; i+=1){
+								let r = random(0,255);
+								let g = random(0,255);
+								let b = random(0,255);
+								colors.push([r,g,b]);
+							}
 						</code></pre>
 					</section>
 					<section>
@@ -1285,84 +1420,6 @@
 					</section>
 
 					
-					<section>
-						<h1>3.5 Konditionale Anweisung</h1>
-						<ul>
-							<li>Code basierend auf Bedingungen auszuführen oder zu überspringen</li>
-							<li>Verzweigungen in einem Programm</li>
-						</ul>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							if(Bedingung){
-								// führe diesen Code aus wenn Bedingung wahr ist
-							}
-						</code></pre>
-					</section>
-					<section>
-						<p>wenn X, dann Y sonst Z</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							if(Bedingung){
-								// führe diesen Code aus wenn Bedingung wahr ist
-							} else {
-								// führe diesen Code aus wenn Bedingung falsch ist
-							}
-						</code></pre>
-						<p>ganz viele Verzweigungen</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							if(Bedingung1){
-								// führe diesen Code aus wenn Bedingung1 wahr ist
-							} else if(Bedingung2) {
-								// führe diesen Code aus wenn Bedingung1 falsch ist
-								// und Bedingung2 wahr ist
-							} else {
-								// führe diesen Code aus wenn beide Bedeutungen falsch sind
-							}
-						</code></pre>
-					</section>
-					<section>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let x = 1;
-
-							if(x <= 0){
-								console.log("x ist nicht positiv");
-							} else {
-								console.log("x ist positiv");
-							}
-						</code></pre>
-						<p class="left">Ausgabe:</p>
-						<pre><code class="hljs javascript" data-trim>
-							x ist positiv
-						</code></pre>
-					</section>
-					<section>
-						<p class="left" style="font-size: 27px;">Gegeben ist ein Array <code>arr</code> mit Zahlen und eine Zahl <code>number</code><br>
-						Teile <code>number</code> durch jede Zahl in <code>arr</code> und speichere das Ergbnis in einem Array</p>
-						<p class="left">Achtung, wir können nicht durch 0 teilen</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let arr = [1,10,15,0,-2,-100];
-							let number = 100;
-							let result = [];
-
-							for(let i=0; i&lt;arr.length; i++){
-								if(arr[i] != 0){  // durch 0 teilen ist nicht möglich
-									result.push(number/arr[i]);
-								}
-							}
-						</code></pre>
-					</section>
-					<section>
-						<h1>Aufgabe</h1>
-						<p class="left">Gegeben ist eine Liste von Punkten <code>points</code> und ein Bild mit der Breite <code>width</code> sowie der Höhe <code>height</code></p>
-						<p class="left">Entferne alle Punkte aus <code>points</code> die nicht mehr im Bild liegen</p>
-						<pre><code class="hljs javascript" data-trim data-line-numbers>
-							let width = 400;
-							let height = 600;
-							let points = [[100,200], [500,2], [60,123], [-1,1], [200, 10]];
-
-							// Schreibe den Code ab hier weiter
-							// Lösung sollte sein: [100,200], [60,123], [200, 10]
-						</code></pre>
-					</section>
-				</section>
 
 				<section id="section-i">
 					
