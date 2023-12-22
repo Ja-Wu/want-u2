@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Generative Art</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="icon.png" type="image/x-icon">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+    	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/rainbow.min.css">
+		<link rel="stylesheet" href="generalStyle.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+                <section>
+                    <h1>II. Generative Art</h1>
+                </section>
+                <section>
+                    <h1>2.1 Definition</h1>
+                    <p style="padding-bottom: 25px; text-align: left;">Form des kreativen Ausdrucks, die sich auf Algorithmen, Regeln oder Prozesse stützt, die vom Künstler festgelegt werden</p>
+                    <p style="text-align: left;">Entsteht unter Verwendung systematischer Prozeduren, meist durch Programmieren</p>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        ### 2.2 Arten von Generativer Kunst
+
+                        - **Algorithmische Kunst:** auf (mathematischen) Algorithmen basierent
+                        - **Interaktive Kunst:** durch Interaktion mit dem Betrachter verändert - <a href="examples/THolman.html" target="_blank">Bsp</a>
+                        - **Fraktale Kunst:** wiederholte Musterbildung - <a href="examples/blank.html?sketch=13" target="_blank">Bsp</a>
+                        - **Zufallsbasierte Kunst:** zufälligen Entscheidungen oder Ereignissen - <a href="examples/blank.html?sketch=5" target="_blank">Bsp</a>
+                    </textarea>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+		<script>
+      Reveal.initialize({
+        view: 'linear',
+        hash: true,
+
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+    </script>
+
+	</body>
+</html>

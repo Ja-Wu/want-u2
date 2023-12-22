@@ -24,7 +24,7 @@
       function loadSketchFromParameter() {
         const urlParams = new URLSearchParams(window.location.search);
         const sketchNumber = urlParams.get('sketch');
-        if (sketchNumber >= 1 && sketchNumber <= 7) {
+        if (sketchNumber >= 1) {
           const scriptTag = document.createElement('script');
           scriptTag.setAttribute('src', `sketch${sketchNumber}.js`);
           document.body.appendChild(scriptTag);
