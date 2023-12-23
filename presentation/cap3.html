@@ -78,7 +78,7 @@
                         <p class="left">Funktionen sind in der Informatik viel komplexer als in der Mathematik</p>
                         <p class="left">Brauchen Schlüsselwort <code>function</code>:
                             <pre><code class="hljs javascript" data-trim>
-                                function name(){...}
+                                function name(argumente){...}
                             </code></pre>
                         </p>
                     </section>
@@ -298,7 +298,7 @@
                                 ellipse(270, 120, 140);
 
                                 fill(0, 0, 255);	// ab hier Blau
-                                rect(10,20,30,40);
+                                rect(10,10,30,40);
 
                                 fill(255, 0, 0, 50);	// ab hier Rot-transparent
                                 triangle(50, 350, 50, 50, 350, 350);
@@ -671,14 +671,67 @@
                 </section> <!--end 3.9-->
                 <section> <!--begin 3.10-->
                     <section>
-                        <h1>3.10 Loops</h1>
+                        <h1>3.10 Konditionale Anweisung</h1>
+                        <ul>
+                            <li>Code basierend auf Bedingungen auszuführen oder zu überspringen</li>
+                            <li>Verzweigungen in einem Programm</li>
+                        </ul>
+                        <pre><code class="hljs javascript" data-trim data-line-numbers>
+                            if(Bedingung){
+                                // führe diesen Code aus wenn Bedingung wahr ist
+                            }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <p>wenn X, dann Y sonst Z</p>
+                        <pre><code class="hljs javascript" data-trim data-line-numbers>
+                            if(Bedingung){
+                                // führe diesen Code aus wenn Bedingung wahr ist
+                            } else {
+                                // führe diesen Code aus wenn Bedingung falsch ist
+                            }
+                        </code></pre>
+                        <p>ganz viele Verzweigungen</p>
+                        <pre><code class="hljs javascript" data-trim data-line-numbers>
+                            if(Bedingung1){
+                                // führe diesen Code aus wenn Bedingung1 wahr ist
+                            } else if(Bedingung2) {
+                                // führe diesen Code aus wenn Bedingung1 falsch ist
+                                // und Bedingung2 wahr ist
+                            } else {
+                                // führe diesen Code aus wenn beide Bedeutungen falsch sind
+                            }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="hljs javascript" data-trim data-line-numbers>
+                            function setup(){
+                                createCanvas(400,400);
+
+                                let r = random(-1,1);
+                                if(r < 0){
+                                    background(0);
+                                } else {
+                                    background(255);
+                                }
+                            }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Aufgabe</h1>
+                        <p class="left">Erstelle ein Bild mit schwarzem Hintergrund. Male ein Kreis in die Mitte des Bildes. Der Kreis soll zufällig Rot (255,0,0), Grün (0,255,0) oder Blau (0,0,255) sein.</p>
+                    </section>
+                </section> <!--end 3.10-->
+                <section> <!--begin 3.11-->
+                    <section>
+                        <h1>3.11 Loops</h1>
                         <p class="left">angenommen wir wollen Teile vom Code n-mal wiederholen <br>
                         aber n ist eine große Zahl oder gar nicht bekannt <br>
                         n ist z.B. eine zufällige Zahl</p>
                         <p class="left">Loops automatisieren wiederkehrende Aufgaben, indem sie über eine festgelegte Datenmenge iterieren oder Code eine bestimmte Anzahl von Malen ausführen.</p>
                     </section>
                     <section>
-                        <h1>3.10.1 While-Loops</h1>
+                        <h1>3.11.1 While-Loops</h1>
                         <p class="left">Die <code>while</code>-Schleife führt Code aus, solange eine spezifische Bedingung wahr ist.</p>
                         <p class="left">Struktur: <pre><code class="hljs javascript" data-trim>while (Bedingung) { ... }</code></pre> </p>
                         <p class="left">Beispiel einer <code>while</code>-Schleife:</p>
@@ -694,7 +747,7 @@
                         </pre>
                     </section>
                     <section>
-                        <h1>3.10.2 For-Loops</h1>
+                        <h1>3.11.2 For-Loops</h1>
                         <p class="left">Die <code>for</code>-Schleife ist ideal für die Iteration über einen bekannten Wertebereich oder Elemente in einem Array. (später)</p>
                         <p class="left">Struktur: <pre><code class="hljs javascript" data-trim>for (Initialisierung; Bedingung; Iteration) { ... }</code></pre> </p>
                         <p class="left">Beispiel einer <code>for</code>-Schleife:</p>
@@ -786,64 +839,6 @@
                         <p class="left">Es entsteht ein Raster aus Quadraten</p>
                     </section>
                     <section>
-                        <h1>Aufagbe</h1>
-                        <p class="left">Erstelle ein Bild mit einem Raster von Quadraten<br>
-                        Die Seitenlänge der Quadrate soll zufällig zwischen 10 und 40 liegen.
-                        Alle Quadrate bekommen die gleiche Seitenlänge und sollen neben einander liegen <br>
-                        Jedes Quadrat soll eine zufällige RGB Farbe bekommen<br>
-                        </p>
-                    </section>
-                </section> <!--end 3.10-->
-                <section> <!--begin 3.11-->
-                    <section>
-                        <h1>3.5 Konditionale Anweisung</h1>
-                        <ul>
-                            <li>Code basierend auf Bedingungen auszuführen oder zu überspringen</li>
-                            <li>Verzweigungen in einem Programm</li>
-                        </ul>
-                        <pre><code class="hljs javascript" data-trim data-line-numbers>
-                            if(Bedingung){
-                                // führe diesen Code aus wenn Bedingung wahr ist
-                            }
-                        </code></pre>
-                    </section>
-                    <section>
-                        <p>wenn X, dann Y sonst Z</p>
-                        <pre><code class="hljs javascript" data-trim data-line-numbers>
-                            if(Bedingung){
-                                // führe diesen Code aus wenn Bedingung wahr ist
-                            } else {
-                                // führe diesen Code aus wenn Bedingung falsch ist
-                            }
-                        </code></pre>
-                        <p>ganz viele Verzweigungen</p>
-                        <pre><code class="hljs javascript" data-trim data-line-numbers>
-                            if(Bedingung1){
-                                // führe diesen Code aus wenn Bedingung1 wahr ist
-                            } else if(Bedingung2) {
-                                // führe diesen Code aus wenn Bedingung1 falsch ist
-                                // und Bedingung2 wahr ist
-                            } else {
-                                // führe diesen Code aus wenn beide Bedeutungen falsch sind
-                            }
-                        </code></pre>
-                    </section>
-                    <section>
-                        <pre><code class="hljs javascript" data-trim data-line-numbers>
-                            let x = 1;
-
-                            if(x <= 0){
-                                console.log("x ist nicht positiv");
-                            } else {
-                                console.log("x ist positiv");
-                            }
-                        </code></pre>
-                        <p class="left">Ausgabe:</p>
-                        <pre><code class="hljs javascript" data-trim>
-                            x ist positiv
-                        </code></pre>
-                    </section>
-                    <section>
                         <p class="left">Wir generieren ein Raster aus Quadraten, wobei jedes Quadrat eine 50% Chance hat nicht gemalt zu werden.</p>
                         <pre><code class="hljs javascript" data-trim data-line-numbers>
                             function setup(){
@@ -860,6 +855,14 @@
                                 }
                             }
                         </code></pre>
+                    </section>
+                    <section>
+                        <h1>Aufagbe</h1>
+                        <p class="left">Erstelle ein Bild mit einem Raster von Quadraten<br>
+                        Die Seitenlänge der Quadrate soll zufällig zwischen 10 und 40 liegen.
+                        Alle Quadrate bekommen die gleiche Seitenlänge und sollen neben einander liegen <br>
+                        Jedes Quadrat soll eine zufällige RGB Farbe bekommen<br>
+                        </p>
                     </section>
                     <section>
                         <h4>Aufgabe</h4>
