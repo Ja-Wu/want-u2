@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Digitale Bilder</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="icon.png" type="image/x-icon">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+    	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/rainbow.min.css">
+		<link rel="stylesheet" href="generalStyle.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<!-- Section 4 -->
+                <section>
+                    <h1>IV. Kunst x Mathematik</h1>
+                    
+                </section>
+
+                <section>
+                    <div>
+                        \[\begin{aligned}
+                        f(x) = a\cdot \sin(b\cdot x + c) + d
+                        \end{aligned} \]
+                    </div>
+                    <canvas id="sineWaveCanvas" width="600" height="160"></canvas> <br>
+                    <p class="left">Übersetzt in JavaScript</p>
+                    <pre><code class="hljs javascript" data-trim>
+                        let y = amplitude * Math.sin(frequency * x + phase) + yOffset;
+                    </code></pre>
+                    <p class="left">durch einfache Anwendung: 
+                        <a href="examples/blank.html?sketch=20" target="_blank">Position</a>, 
+                        <a href="examples/blank.html?sketch=21" target="_blank">Farbe</a>, 
+                        <a href="examples/blank.html?sketch=22" target="_blank">Radius</a></p>
+                    <p class="left">entstehen komplexe Strukturen: 
+                        <a href="examples/blank.html?sketch=24" target="_blank">Reihen</a>, 
+                        <a href="examples/blank.html?sketch=25" target="_blank">Matrix</a>, 
+                        <a href="examples/blank.html?sketch=23" target="_blank">Kombination</a>
+                        </p>
+                    <script>
+                        // Get the canvas element and its context
+                        var canvas = document.getElementById("sineWaveCanvas");
+                        var ctx = canvas.getContext("2d");
+
+                        // Function to draw a sine wave
+                        function drawSineWave() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        
+                        // Set the properties of the sine wave
+                        var amplitude = 50;
+                        var frequency = 0.02;
+                        var phase = 0;
+                        var yOffset = canvas.height / 2;
+
+                        // Draw y-axis
+                        ctx.beginPath();
+                        ctx.moveTo(canvas.width / 2, 0);
+                        ctx.lineTo(canvas.width / 2, canvas.height);
+                        ctx.strokeStyle = "#fff";
+                        ctx.stroke();
+
+                        // Draw x-axis
+                        ctx.beginPath();
+                        ctx.moveTo(0, canvas.height/2);
+                        ctx.lineTo(canvas.width, canvas.height/2);
+                        ctx.strokeStyle = "#fff";
+                        ctx.stroke();
+
+                        // Draw y-axis labels
+                        ctx.font = "18px Arial";
+                        ctx.fillStyle = "#fff";
+                        ctx.textAlign = "center";
+                        ctx.fillText("d + a", canvas.width / 2 + 40, canvas.height/2 - amplitude + 5);
+                        ctx.fillText("d - a", canvas.width / 2 + 40, canvas.height/2 + amplitude + 5);
+                        ctx.fillText("d", canvas.width / 2 + 40, canvas.height/2 + 5);
+
+                        // Draw bound lines
+                        ctx.beginPath();
+                        ctx.moveTo(canvas.width/2-10, canvas.height/2 - amplitude);
+                        ctx.lineTo(canvas.width/2+10, canvas.height/2 - amplitude);
+                        ctx.strokeStyle = "#fff";
+                        ctx.stroke();
+
+                        ctx.beginPath();
+                        ctx.moveTo(canvas.width/2-10, canvas.height/2 + amplitude);
+                        ctx.lineTo(canvas.width/2+10, canvas.height/2 + amplitude);
+                        ctx.strokeStyle = "#fff";
+                        ctx.stroke();
+
+                        ctx.beginPath();
+
+                        ctx.lineWidth = 3;
+
+                        // Draw the sine wave
+                        for (var x = 0; x < canvas.width; x++) {
+                            var y = amplitude * Math.sin(frequency * x + phase) + yOffset;
+                            ctx.lineTo(x, y);
+                        }
+
+                        // Set the line color
+                        ctx.strokeStyle = "#fff";
+
+                        // Draw the line
+                        ctx.stroke();
+                        }
+
+                        // Call the drawSineWave function
+                        drawSineWave();
+                    </script>
+                </section>
+                <section>
+                    <a href="cap5.html" class="buttonChapter">
+                        Kapitel 5
+                    </a>
+                </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+        <script src="plugin/math/math.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+		<script>
+      Reveal.initialize({
+        view: 'linear',
+        hash: true,
+
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax2 ]
+			});
+    </script>
+
+	</body>
+</html>
