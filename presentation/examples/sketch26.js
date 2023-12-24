@@ -23,12 +23,12 @@ function setup(){
 function draw(){
     if(view){
         background(0);
-        stroke(128);
+        stroke(0);
     } else {
         background(255);
         stroke(0);
     }
-    
+
     const xS = xSlider.value();
     const yS = ySlider.value();
     const zS = zSlider.value();
