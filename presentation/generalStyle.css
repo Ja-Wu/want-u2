@@ -22,3 +22,31 @@
     background-color: #134dd4;
     border-color: #2980b9;
 }
+
+/* styles.css */
+.special-bullets { /* Styling for the special class */
+    padding: 0;
+  }
+  
+  .special-bullets li {
+    list-style: none; /* Remove default bullet points */
+  }
+  
+  .special-bullets li a {
+    display: block; /* Ensure links fill the list item horizontally */
+    text-decoration: none;
+    color: #006affc0; /* Change this color to your preference */
+    font-weight: bold;
+    padding: 10px; /* Adjust padding for the box around the text */
+    transition: color 0.3s ease, background-color 0.3s ease, border 0.3s ease; /* Add background-color transition */
+    border-radius: 10px; /* Rounded corners for the box */
+    border: 2px solid transparent; /* Transparent border initially */
+  }
+  
+  .special-bullets li a:hover {
+    color: #ff6600; /* Change this color to your preference */
+    background-color: #85858520; /* Change the background color on hover */
+    border: 2px solid;
+    border-color: #ff6600; /* Change the border color on hover */
+  }
+  
