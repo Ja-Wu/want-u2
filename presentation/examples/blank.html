@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <title>p5.js Image</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-coy.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
     <meta charset="utf-8" />
     <style>
@@ -9,12 +11,12 @@
           background-color: rgb(150, 130, 110);
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: top; /* change to center if not displayCode */
           height: 100vh;
           margin: 0;
         }
         canvas {
-          border: 12px solid black; /* Optional: Adds a border to the canvas */
+          border: 12px solid black; /* Add a border to the canvas */
         }
       </style>
   </head>
@@ -24,12 +26,29 @@
       function loadSketchFromParameter() {
         const urlParams = new URLSearchParams(window.location.search);
         const sketchNumber = urlParams.get('sketch');
+        const displayCode = urlParams.get('displayCode'); // New parameter
+        
         if (sketchNumber >= 1) {
-          const scriptTag = document.createElement('script');
-          scriptTag.setAttribute('src', `sketch${sketchNumber}.js`);
-          document.body.appendChild(scriptTag);
+          if (displayCode === 'true') { // Check if displayCode parameter is set to 'true'
+          fetch(`sketch${sketchNumber}.js`)
+            .then(response => response.text())
+            .then(code => {
+              const codeContainer = document.createElement('pre');
+              codeContainer.innerHTML = `<code class="language-javascript">${Prism.highlight(code, Prism.languages.javascript, 'javascript')}</code>`; // Highlighted code
+              document.body.appendChild(codeContainer);
+              Prism.highlightAll(); // Highlight all code blocks
+            })
+            .catch(error => {
+              console.error('Error fetching sketch:', error);
+            });
+          } else {
+            document.body.style.alignItems = 'center';
+            const scriptTag = document.createElement('script');
+            scriptTag.setAttribute('src', `sketch${sketchNumber}.js`);
+            document.body.appendChild(scriptTag);
+          }
         } else {
-          console.error('Invalid sketch number. Please provide a number between 1 and 7.');
+          console.error('Invalid sketch number');
         }
       }
 
