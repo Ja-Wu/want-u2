@@ -7,18 +7,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
     <meta charset="utf-8" />
     <style>
-        body {
-          background-color: rgb(150, 130, 110);
-          display: flex;
-          justify-content: center;
-          align-items: top; /* change to center if not displayCode */
-          height: 100vh;
-          margin: 0;
-        }
-        canvas {
-          border: 12px solid black; /* Add a border to the canvas */
-        }
-      </style>
+      body {
+        background-color: #f5f5f5; /* Light gray background color */
+        display: flex;
+        justify-content: center;
+        align-items: top;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif; /* Adding a font for better readability */
+        position: relative; /* Add position relative for pseudo-element */
+      }
+      
+      canvas {
+        border: 10px solid black; /* Border around the canvas */
+        position: relative; /* Add position relative for z-index */
+        z-index: 1; /* Ensure canvas is on top of pseudo-element */
+      }
+      
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Allow clicks to go through the pseudo-element */
+        background: 
+          /* Creating a noise pattern using linear-gradient */
+          linear-gradient(
+            #000 0%, /* Adjust the noise size by changing these values */
+            #fff 45%, #fff 55%, 
+            #000 85%,
+            transparent 50%, transparent 100%
+          );
+        opacity: 0.35; /* Adjust the opacity of the noise */
+      }
+      
+    </style>
   </head>
   <body>
     <script>

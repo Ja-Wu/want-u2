@@ -24,129 +24,158 @@
 				<!-- Section 4 -->
                 <section>
                     <h1>IV. Kunst x Mathematik</h1>
-                    
                 </section>
 
                 <section>
-                    <div>
-                        \[\begin{aligned}
-                        f(x) = a\cdot \sin(b\cdot x + c) + d
-                        \end{aligned} \]
-                    </div>
-                    <canvas id="sineWaveCanvas" width="600" height="160"></canvas> <br>
-                    <p class="left">Übersetzt in JavaScript</p>
-                    <pre><code class="hljs javascript" data-trim>
-                        let y = amplitude * Math.sin(frequency * x + phase) + yOffset;
+                    <p class="left">Um den Code der Bilder einzusehen:</p>
+                    <pre><code class="http" data-trim>
+                        &displayCode=true
                     </code></pre>
-                    <p class="left">durch einfache Anwendung: 
-                        <a href="examples/blank.html?sketch=20" target="_blank">Position</a>, 
-                        <a href="examples/blank.html?sketch=21" target="_blank">Farbe</a>, 
-                        <a href="examples/blank.html?sketch=22" target="_blank">Radius</a></p>
-                    <p class="left">entstehen komplexe Strukturen: 
-                        <a href="examples/blank.html?sketch=24" target="_blank">Reihen</a>, 
-                        <a href="examples/blank.html?sketch=25" target="_blank">Matrix</a>, 
-                        <a href="examples/blank.html?sketch=23" target="_blank">Kombination</a>
-                        </p>
-                    <script>
-                        // Get the canvas element and its context
-                        var canvas = document.getElementById("sineWaveCanvas");
-                        var ctx = canvas.getContext("2d");
-
-                        // Function to draw a sine wave
-                        function drawSineWave() {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        
-                        // Set the properties of the sine wave
-                        var amplitude = 50;
-                        var frequency = 0.02;
-                        var phase = 0;
-                        var yOffset = canvas.height / 2;
-
-                        // Draw y-axis
-                        ctx.beginPath();
-                        ctx.moveTo(canvas.width / 2, 0);
-                        ctx.lineTo(canvas.width / 2, canvas.height);
-                        ctx.strokeStyle = "#fff";
-                        ctx.stroke();
-
-                        // Draw x-axis
-                        ctx.beginPath();
-                        ctx.moveTo(0, canvas.height/2);
-                        ctx.lineTo(canvas.width, canvas.height/2);
-                        ctx.strokeStyle = "#fff";
-                        ctx.stroke();
-
-                        // Draw y-axis labels
-                        ctx.font = "18px Arial";
-                        ctx.fillStyle = "#fff";
-                        ctx.textAlign = "center";
-                        ctx.fillText("d + a", canvas.width / 2 + 40, canvas.height/2 - amplitude + 5);
-                        ctx.fillText("d - a", canvas.width / 2 + 40, canvas.height/2 + amplitude + 5);
-                        ctx.fillText("d", canvas.width / 2 + 40, canvas.height/2 + 5);
-
-                        // Draw bound lines
-                        ctx.beginPath();
-                        ctx.moveTo(canvas.width/2-10, canvas.height/2 - amplitude);
-                        ctx.lineTo(canvas.width/2+10, canvas.height/2 - amplitude);
-                        ctx.strokeStyle = "#fff";
-                        ctx.stroke();
-
-                        ctx.beginPath();
-                        ctx.moveTo(canvas.width/2-10, canvas.height/2 + amplitude);
-                        ctx.lineTo(canvas.width/2+10, canvas.height/2 + amplitude);
-                        ctx.strokeStyle = "#fff";
-                        ctx.stroke();
-
-                        ctx.beginPath();
-
-                        ctx.lineWidth = 3;
-
-                        // Draw the sine wave
-                        for (var x = 0; x < canvas.width; x++) {
-                            var y = amplitude * Math.sin(frequency * x + phase) + yOffset;
-                            ctx.lineTo(x, y);
-                        }
-
-                        // Set the line color
-                        ctx.strokeStyle = "#fff";
-
-                        // Draw the line
-                        ctx.stroke();
-                        }
-
-                        // Call the drawSineWave function
-                        drawSineWave();
-                    </script>
+                    <p class="left">an die Internet-Addresse anhängen</p>
+                    <p class="left">Zeigt Bild: <a href="examples/blank.html?sketch=1" target="_blank">examples/blank.html?sketch=1</a><br>
+                    Zeigt Code: <a href="examples/blank.html?sketch=1&displayCode=true" target="_blank">examples/blank.html?sketch=1&displayCode=true</a></p>
                 </section>
-                <section>
-                    <p>Polare Koordinaten zu Kartesische Koordinaten</p>
-                    <div>
-                        \[\begin{aligned}
-                        x = r\cdot \sin(\phi)\\
-                        y = r\cdot \cos(\phi)
-                        \end{aligned} \]
-                    </div>
-                    <p class="left">Ein Punkt P(x,y) auf den Kreis mit Radius r</p>
-                    <p class="left">Anwendung: 
-                        <a href="examples/blank.html?sketch=32" target="_blank">Einfach</a>, 
-                        <a href="examples/blank.html?sketch=30" target="_blank">Komplexer</a>, 
-                        <a href="examples/blank.html?sketch=33" target="_blank">Kombi</a>, 
-                        <a href="examples/blank.html?sketch=31" target="_blank">Final</a></p>
+
+                <section> <!--begin 4.1-->
+                    <section>
+                        <h1>4.1 Trigonometrie</h1>
+                    </section>
+                    <section>
+                        <div>
+                            \[\begin{aligned}
+                            f(x) = a\cdot \sin(b\cdot x + c) + d
+                            \end{aligned} \]
+                        </div>
+                        <canvas id="sineWaveCanvas" width="600" height="160"></canvas> <br>
+                        <p class="left">Übersetzt in JavaScript</p>
+                        <pre><code class="hljs javascript" data-trim>
+                            let y = amplitude * Math.sin(frequency * x + phase) + yOffset;
+                        </code></pre>
+                        <p class="left">durch einfache Anwendung: 
+                            <a href="examples/blank.html?sketch=20" target="_blank">Position</a>, 
+                            <a href="examples/blank.html?sketch=21" target="_blank">Farbe</a>, 
+                            <a href="examples/blank.html?sketch=22" target="_blank">Radius</a></p>
+                        <p class="left">entstehen komplexe Strukturen: 
+                            <a href="examples/blank.html?sketch=24" target="_blank">Reihen</a>, 
+                            <a href="examples/blank.html?sketch=25" target="_blank">Matrix</a>, 
+                            <a href="examples/blank.html?sketch=23" target="_blank">Kombination</a>
+                            </p>
+                        <script>
+                            // Get the canvas element and its context
+                            var canvas = document.getElementById("sineWaveCanvas");
+                            var ctx = canvas.getContext("2d");
+
+                            // Function to draw a sine wave
+                            function drawSineWave() {
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                            
+                            // Set the properties of the sine wave
+                            var amplitude = 50;
+                            var frequency = 0.02;
+                            var phase = 0;
+                            var yOffset = canvas.height / 2;
+
+                            // Draw y-axis
+                            ctx.beginPath();
+                            ctx.moveTo(canvas.width / 2, 0);
+                            ctx.lineTo(canvas.width / 2, canvas.height);
+                            ctx.strokeStyle = "#fff";
+                            ctx.stroke();
+
+                            // Draw x-axis
+                            ctx.beginPath();
+                            ctx.moveTo(0, canvas.height/2);
+                            ctx.lineTo(canvas.width, canvas.height/2);
+                            ctx.strokeStyle = "#fff";
+                            ctx.stroke();
+
+                            // Draw y-axis labels
+                            ctx.font = "18px Arial";
+                            ctx.fillStyle = "#fff";
+                            ctx.textAlign = "center";
+                            ctx.fillText("d + a", canvas.width / 2 + 40, canvas.height/2 - amplitude + 5);
+                            ctx.fillText("d - a", canvas.width / 2 + 40, canvas.height/2 + amplitude + 5);
+                            ctx.fillText("d", canvas.width / 2 + 40, canvas.height/2 + 5);
+
+                            // Draw bound lines
+                            ctx.beginPath();
+                            ctx.moveTo(canvas.width/2-10, canvas.height/2 - amplitude);
+                            ctx.lineTo(canvas.width/2+10, canvas.height/2 - amplitude);
+                            ctx.strokeStyle = "#fff";
+                            ctx.stroke();
+
+                            ctx.beginPath();
+                            ctx.moveTo(canvas.width/2-10, canvas.height/2 + amplitude);
+                            ctx.lineTo(canvas.width/2+10, canvas.height/2 + amplitude);
+                            ctx.strokeStyle = "#fff";
+                            ctx.stroke();
+
+                            ctx.beginPath();
+
+                            ctx.lineWidth = 3;
+
+                            // Draw the sine wave
+                            for (var x = 0; x < canvas.width; x++) {
+                                var y = amplitude * Math.sin(frequency * x + phase) + yOffset;
+                                ctx.lineTo(x, y);
+                            }
+
+                            // Set the line color
+                            ctx.strokeStyle = "#fff";
+
+                            // Draw the line
+                            ctx.stroke();
+                            }
+
+                            // Call the drawSineWave function
+                            drawSineWave();
+                        </script>
+                    </section>
+                    <section>
+                        <p>Polare Koordinaten zu Kartesische Koordinaten</p>
+                        <div>
+                            \[\begin{aligned}
+                            x = r\cdot \sin(\phi)\\
+                            y = r\cdot \cos(\phi)
+                            \end{aligned} \]
+                        </div>
+                        <p class="left">Ein Punkt P(x,y) auf den Kreis mit Radius r</p>
+                        <p class="left">Anwendung: 
+                            <a href="examples/blank.html?sketch=32" target="_blank">Einfach</a>, 
+                            <a href="examples/blank.html?sketch=30" target="_blank">Komplexer</a>, 
+                            <a href="examples/blank.html?sketch=33" target="_blank">Kombi</a>, 
+                            <a href="examples/blank.html?sketch=31" target="_blank">Final</a></p>
+                    </section>
+                </section> <!--end 4.1-->
+                <section> <!--begin 4.2-->
+                    <section>
+                        <h1>4.2 Stochastik</h1>
+                    </section>
+                    <section>
+                        <p>Gleichverteilung</p>
+                        <p class="left">Jedes Ereignis hat die gleiche Wahrscheinlichkeit</p>
+                        <pre><code class="hljs javascript" data-trim>
+                            random();
+                        </code></pre>
+                        <a href="examples/blank.html?sketch=16" target="_blank">Einfach</a>, 
+                    </section>
+                    <section>
+                        <p>Gauss-Verteilung</p>
+                        <div>
+                            \[\begin{aligned}
+                            f(x) &= \frac{1}{{\sigma \sqrt{2\pi}}} \cdot \exp\left(-\frac{{(x - \mu)^2}}{{2\sigma^2}}\right)\\
+                            &\\
+                            f(x, y) &= \frac{1}{{2\pi \sigma^2}} \cdot \exp\left(-\frac{{(x - \mu_x)^2 + (y - \mu_y)^2}}{{2\sigma^2}}\right)
+                            \end{aligned} \]
+                        </div>
+                        <p class="left">Anwendung: 
+                            <a href="examples/blank.html?sketch=9" target="_blank">1D</a>, 
+                            <a href="examples/blank.html?sketch=3" target="_blank">2D</a>, 
+                            <a href="examples/blank.html?sketch=2" target="_blank">Kombi</a></p>
+                    </section>
                 </section>
-                <section>
-                    <p>Gauss-Verteilung</p>
-                    <div>
-                        \[\begin{aligned}
-                        f(x) &= \frac{1}{{\sigma \sqrt{2\pi}}} \cdot \exp\left(-\frac{{(x - \mu)^2}}{{2\sigma^2}}\right)\\
-                        &\\
-                        f(x, y) &= \frac{1}{{2\pi \sigma^2}} \cdot \exp\left(-\frac{{(x - \mu_x)^2 + (y - \mu_y)^2}}{{2\sigma^2}}\right)
-                        \end{aligned} \]
-                    </div>
-                    <p class="left">Anwendung: 
-                        <a href="examples/blank.html?sketch=9" target="_blank">1D</a>, 
-                        <a href="examples/blank.html?sketch=3" target="_blank">2D</a>, 
-                        <a href="examples/blank.html?sketch=2" target="_blank">Kombi</a></p>
-                </section>
+                
+                
                 <section>
                     <a href="cap5.html" class="buttonChapter">
                         Kapitel 5
