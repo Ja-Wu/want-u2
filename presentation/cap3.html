@@ -67,6 +67,15 @@
                         </code></pre>
                         <p class="left">Gibt "hello world!" in der Konsole aus</p>
                     </section>
+                    <section>
+                        <p>Kommentare</p>
+                        <p class="left">erlaubt "normale" Sprache im Code <br>
+                        werden geschrieben um Code verständlicher zu machen <br>
+                        ändern nichts an der Funktionalität</p>
+                        <pre><code class="hljs javascript" data-trim>
+                            console.log("hello world!"); // begrüße die Welt
+                        </code></pre>
+                    </section>
                 </section> <!--end 3.2-->
                 
                 <section> <!--begin 3.3-->
@@ -90,7 +99,7 @@
                 
                 <section> <!--begin 3.4-->
                     <section>
-                        <h1>3.4 Setup()</h1>
+                        <h1>3.4 Setup</h1>
                         <p class="left">wird automatisch einmal am Anfang des Programms aufgerufen <br>
                         legt initialen Aufbau des Codes fest</p>
                         <pre><code class="hljs javascript" data-trim data-line-numbers>
@@ -132,24 +141,17 @@
                     </section>
                 </section> <!--end 3.4-->
                 <section> <!--begin 3.5-->
-                    <h1>3.5 draw()</h1>
+                    <h1>3.5 draw</h1>
                     <p class="left">Funktion wird kontinuierlich aufgerufen, etwa 60 Mal pro Sekunde <br>
                         Hauptaufgabe ist kontinuierlich Bild zu aktualisieren</p>
 
                     <pre><code class="hljs javascript" data-trim data-line-numbers>
-                        let color = 0;
-
                         function setup(){
                             createCanvas(400, 400);
-                            background(0);
                         }
 
                         function draw(){
-                            color++;
-                            if(color > 255){
-                                color = 0;
-                            }
-                            background(color);
+                            background(frameCount % 256);
                         }
                     </code></pre>
                 </section> <!--end 3.5-->
@@ -352,6 +354,16 @@
                         </code></pre>
                     </section>
                     <section>
+                        <h1>Aufgabe</h1>
+                        <p class="left">Erstelle ein quadratisches Bild mit schwarzen Hintergrund. <br>
+                        Benutze Weiße Ränder und male folgende Formen:</p>
+                        <ul>
+                            <li>ein großes rotes Quadrat, dessen untere rechte Ecke in der Mitte des Bildes ist</li>
+                            <li>einen kleinen blauen Kreis auch in der Mitte vom Bild</li>
+                            <li>eine dicke grüne vertikale Linie die weder das Quadrat, noch den Kreis berührt</li>
+                        </ul>
+                    </section>
+                    <section>
                         <h1>HSL</h1>
                         <p class="left">Ändern zu HSL mit function:</p>
                         <pre><code class="hljs javascript" data-trim>
@@ -525,8 +537,8 @@
                         <pre><code class="hljs javascript">let name = wert;</code></pre>
                         <p class="left">Wir können auf den gespeicherten Wert zugreifen</p>
                         <pre><code class="hljs javascript" data-trim data-line-numbers>
-                            let zuMerken = 1;
-                            console.log(zuMerken);
+                            let x = 1;
+                            console.log(x);
                         </code></pre>
                     </section>
                     <section>
@@ -620,53 +632,23 @@
                             let y = 5;
 
                             console.log(x === y); 	// hat x den gleichen Wert wie y
-                            console.log(x > y);		// hat x einen größeren Wert wie y
-
-                            let istGleich = x === y;
-                            let istKleiner = x < y;
-                            let istKleinerGleich = x <= y;
-
-                            console.log(istGleich);
-                            console.log(istKleiner);
-                            console.log(istKleinerGleich);
-                        </code></pre>
-                    </section>
-                    <section>
-                        <p>basis Operationen</p>
-                        <p class="left">Logische Operationen</p>
-                        <p class="left">logisch ODER  || <br>
-                            Verknüpft zwei Ausdrücke und gibt true zurück, wenn MINDESTENS EIN Ausdruck wahr ist.</p>
-                        <p class="left">logisch UND  && <br>
-                            Verknüpft zwei Ausdrücke und gibt true zurück, wenn BEIDE Ausdrücke wahr sind.</p>
-                        <pre><code class="hljs javascript" data-trim data-line-numbers>
-                            let istWochenende = false;
-                            let istFeiertag = true;
-                            let keineSchule = istWochenende || istFeiertag; // ODER
-
-                            let hatFahrerlaubnis = true;
-                            let hatAuto = false;
-                            let kannAutofahren = hatFahrerlaubnis && hatAuto; // UND
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h4>Aufgabe</h4>
-                        <p>Welche Werte haben x,y und z am Ende vom Program?</p>
-                        <pre><code class="hljs javascript" data-trim data-line-numbers>
-                            let black = 0;
-                            let gray = 127;
-                            let white = 255;
-
-                            let farbe = 1;
-
-                            farbe += 2*gray;
-                            let x = farbe;
-                            farbe += 1;
-                            let y = farbe%2;
-                            let z = ((farbe/2)-1)<=gray;
+                            console.log(x > y);	    // hat x einen größeren Wert wie y
+                            console.log(x <= y);    // ist x kleiner oder gleich wie y
                         </code></pre>
                     </section>
                     <section>
                         <p>Wenn wir <code>createCanvas(width, height)</code> ausführen, werden automatisch die Variablen <code>width</code> und <code>height</code> angelegt </p>
+                        <pre><code class="hljs javascript" data-trim data-line-numbers>
+                            function setup() {
+                                createCanvas(450, 700);
+                                background(255);
+                                stroke(0);
+                                strokeWeight(4);
+
+                                // Kreis in der Mitte vom Bild
+                                ellipse(width/2, height/2, 150);
+                            }
+                        </code></pre>
                     </section>
                 </section> <!--end 3.9-->
                 <section> <!--begin 3.10-->
@@ -699,7 +681,7 @@
                                 // führe diesen Code aus wenn Bedingung1 falsch ist
                                 // und Bedingung2 wahr ist
                             } else {
-                                // führe diesen Code aus wenn beide Bedeutungen falsch sind
+                                // führe diesen Code aus wenn beide Bedingungen falsch sind
                             }
                         </code></pre>
                     </section>
@@ -855,14 +837,6 @@
                                 }
                             }
                         </code></pre>
-                    </section>
-                    <section>
-                        <h1>Aufagbe</h1>
-                        <p class="left">Erstelle ein Bild mit einem Raster von Quadraten<br>
-                        Die Seitenlänge der Quadrate soll zufällig zwischen 10 und 40 liegen.
-                        Alle Quadrate bekommen die gleiche Seitenlänge und sollen neben einander liegen <br>
-                        Jedes Quadrat soll eine zufällige RGB Farbe bekommen<br>
-                        </p>
                     </section>
                     <section>
                         <h4>Aufgabe</h4>
