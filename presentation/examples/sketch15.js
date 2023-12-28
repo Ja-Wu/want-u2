@@ -106,35 +106,38 @@ function addLine(weight){
 }
 
 function mousePressed() {
-    lines = [];
-    linesDistribution = [];
-    background(255);
-    frame = 0;
+    if(mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
+        lines = [];
+        linesDistribution = [];
+        background(255);
+        frame = 0;
 
-    // add the edges of the canvas to the lines array
-    lines.push([0,0,0,height-1]);
-    addLine(height);
-    lines.push([0,0,width-1,0]);
-    addLine(width);
-    lines.push([0,height-1,width-1,height-1]);
-    addLine(width);
-    lines.push([width-1,0,width-1,height-1]);
-    addLine(height);
+        // add the edges of the canvas to the lines array
+        lines.push([0,0,0,height-1]);
+        addLine(height);
+        lines.push([0,0,width-1,0]);
+        addLine(width);
+        lines.push([0,height-1,width-1,height-1]);
+        addLine(width);
+        lines.push([width-1,0,width-1,height-1]);
+        addLine(height);
 
-    let randomIterations = int(random(10, 20));
+        let randomIterations = int(random(10, 20));
 
-    for(let i=0; i<randomIterations; i+=1){
-        // get a random border 
-        let border = [[0,0,0,height-1], [0,0,width-1,0], [0,height-1,width-1,height-1], [width-1,0,width-1,height-1]][int(random(0,4))];
+        for(let i=0; i<randomIterations; i+=1){
+            // get a random border 
+            let border = [[0,0,0,height-1], [0,0,width-1,0], [0,height-1,width-1,height-1], [width-1,0,width-1,height-1]][int(random(0,4))];
 
-        // get a random point on that border
-        let ran = random();
-        let bX = int(border[0] + ran * (border[2] - border[0]))
-        let bY = int(border[1] + ran * (border[3] - border[1]))
+            // get a random point on that border
+            let ran = random();
+            let bX = int(border[0] + ran * (border[2] - border[0]))
+            let bY = int(border[1] + ran * (border[3] - border[1]))
 
-        // draw a line from the cursor to that point
-        line(mouseX, mouseY, bX, bY);
-        lines.push([mouseX, mouseY, bX, bY]);
-        addLine(dist(mouseX, mouseY, bX, bY));
+            // draw a line from the cursor to that point
+            line(mouseX, mouseY, bX, bY);
+            lines.push([mouseX, mouseY, bX, bY]);
+            addLine(dist(mouseX, mouseY, bX, bY));
+        }
     }
+    
 }
