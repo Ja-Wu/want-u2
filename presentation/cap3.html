@@ -104,7 +104,7 @@
                         legt initialen Aufbau des Codes fest</p>
                         <pre><code class="hljs javascript" data-trim data-line-numbers>
                             function setup(){
-                                // mache erst einmal nichts
+                                // ...
                             }
                         </code></pre>
                         <p class="left">innerhalb dieser Funktion werden wir jetzt Bilder erzeugen</p>
@@ -143,7 +143,7 @@
                 <section> <!--begin 3.5-->
                     <h1>3.5 draw</h1>
                     <p class="left">Funktion wird kontinuierlich aufgerufen, etwa 60 Mal pro Sekunde <br>
-                        Hauptaufgabe ist kontinuierlich Bild zu aktualisieren</p>
+                        Hauptaufgabe ist das Bild zu aktualisieren, wie eine Animation</p>
 
                     <pre><code class="hljs javascript" data-trim data-line-numbers>
                         function setup(){
@@ -255,7 +255,7 @@
                         <pre><code class="hljs javascript" data-trim>
                             quad(x1, y1, x2, y2, x3, y3, x4, y4);
                         </code></pre>
-                        <p class="left"><code>x1, y1, x2, y2, x3, y3, x4, y4</code> sind die drei Eckpunkte des Vierecks</p>
+                        <p class="left"><code>x1, y1, x2, y2, x3, y3, x4, y4</code> sind die Eckpunkte des Vierecks</p>
                         <pre><code class="hljs javascript" data-trim data-line-numbers>
                             function setup(){
                                 createCanvas(400, 400);
@@ -702,6 +702,7 @@
                     <section>
                         <h1>Aufgabe</h1>
                         <p class="left">Erstelle ein Bild mit schwarzem Hintergrund. Male ein Kreis in die Mitte des Bildes. Der Kreis soll zufällig Rot (255,0,0), Grün (0,255,0) oder Blau (0,0,255) sein.</p>
+                        <p class="left">Tipp: Verwende <pre><code class="hljs javascript" data-trim>if(){} else if(){} else{}</code></pre></p>
                     </section>
                 </section> <!--end 3.10-->
                 <section> <!--begin 3.11-->
@@ -722,7 +723,7 @@
                                 let count = 0;
                                 while (count < 5) {
                                     // Code, der so lange wiederholt wird, bis count 5 erreicht
-                                    console.log('Count: ' + count);
+                                    console.log(count);
                                     count += 1;
                                 }
                             </code>
@@ -737,7 +738,7 @@
                             <code class="hljs javascript" data-trim data-line-numbers>
                                 for (let i = 0; i &lt; 5; i += 1) {
                                     // Code, der 5 Mal wiederholt wird
-                                    console.log('Iteration ' + i);
+                                    console.log(i);
                                 }
                             </code>
                         </pre>
@@ -759,8 +760,8 @@
                                     for (let i = 0; i &lt; numOfCircles; i += 1) {
                                         let x = random(0,width);
                                         let y = random(0,height);
-                                        let r = random(1,100);
-                                        ellipse(x, y, r);
+                                        let diameter = random(1,100);
+                                        ellipse(x, y, diameter);
                                     }
                                 }
                             </code>
@@ -830,7 +831,7 @@
                                 let laenge = 50;
                                 for(let y=0; y&lt;height; y+=laenge){
                                     for(let x=0; x&lt;width; x+=laenge){
-                                        if(random(0,100) >= 50){
+                                        if(random() < 0.5){
                                             rect(x,y,laenge,laenge);
                                         }
                                     }
@@ -840,11 +841,9 @@
                     </section>
                     <section>
                         <h4>Aufgabe</h4>
-                        <p class="left">Erstelle ein 600x600 Bild mit einem Raster aus Quadraten mit einer Seitenlänge von 50 (siehe letzte Folie).</p>
-                        <p class="left">1. Bestimme drei zufällige Farben und weise jedem Quadrat zufällig einer dieser drei Farben zu.</p>
-                        <p class="left">Tipp: Verwende <pre><code class="hljs javascript" data-trim>if(){} else if(){} else{}</code></pre></p>
-                        <h4>Aufgabe</h4>
-                        <p class="left">2. Wähle zufällig zwischen Quadraten und Kreise</p>
+                        <p class="left">Erstelle ein 600x600 Bild mit einem Raster aus Formen mit einer Länge von 50 (siehe letzte Folie).</p>
+                        <p class="left">1. Bestimme anfangs drei zufällige Farben</p>
+                        <p class="left">2. Wähle bei jedem Schritt zufällig zwischen Quadrat und Kreis, sowie einer der drei Farben</p>
                     </section>
                 </section> <!--end 3.11-->
                 <section> <!--begin 3.12-->
@@ -1044,7 +1043,6 @@
                     </section>
 
                     <section>
-                        <h1>digitale Bilder</h1>
                         Bsp: ein 3x3 Bild mit RGB-Farben</p>
 
                         <table style="vertical-align: top; padding: 20px;">
@@ -1118,18 +1116,18 @@
                                 let array = [0, 28, 56, 127, 255];
                                 for (let i = 0; i &lt; array.length; i += 1) {
                                     // Code wird für jedes Element in array wiederholt
-                                    console.log(i + ': ' + array[i]);
+                                    console.log(array[i]);
                                 }
                             </code>
                         </pre>
                         <p class="left">Ausgabe:</p>
                         <pre>
                             <code class="hljs javascript" data-trim>
-                                0: 0 
-                                1: 28 
-                                2: 56 
-                                3: 127 
-                                4: 255 
+                                0 
+                                28 
+                                56 
+                                127 
+                                255 
                             </code>
                         </pre>
                     </section>
@@ -1222,7 +1220,7 @@
                 </section> <!--end 3.14-->
                 <section>
                     <p class="r-fit-text">FRAGEN?</p>
-                    <a href="https://want-u2.com/presentation/cap4" class="buttonChapter">
+                    <a href="cap4.html" class="buttonChapter">
                         Kapitel 4
                     </a>
                 </section>
