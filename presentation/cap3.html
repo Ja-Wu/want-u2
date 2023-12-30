@@ -693,9 +693,13 @@
                                 let r = random(-1,1);
                                 if(r < 0){
                                     background(0);
+                                    fill(0,0,255);
                                 } else {
                                     background(255);
+                                    fill(255,0,0);
                                 }
+                                
+                                rect(100,100,200,200);
                             }
                         </code></pre>
                     </section>
@@ -967,11 +971,12 @@
                                 colors.push([r,g,b]);
                             }
                         </code></pre>
+                        <p class="left">Diesen Array können wir als Farbpalette benutzen: <a href="examples/blank.html?sketch=6" target="_blank">Bsp</a></p>
                     </section>
                 </section> <!--end 3.12-->
                 <section> <!--begin 3.13-->
                     <section>
-                        <h1>3.3 digitale Bilder</h1>
+                        <h2>3.12 digitale Bilder</h2>
                         <p>Vortsetzung</p>
                         <p class="left">Bilder werden mit Arrays repräsentiert <br>
                         Bsp: ein 3x3 Bild mit Grauwerten</p>
@@ -1108,116 +1113,6 @@
                         </script>
                     </section>
                 </section> <!--end 3.13-->
-                <section> <!--begin 3.14-->
-                    <section>
-                        <p class="left">For-Loops und Arrays:</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim data-line-numbers>
-                                let array = [0, 28, 56, 127, 255];
-                                for (let i = 0; i &lt; array.length; i += 1) {
-                                    // Code wird für jedes Element in array wiederholt
-                                    console.log(array[i]);
-                                }
-                            </code>
-                        </pre>
-                        <p class="left">Ausgabe:</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim>
-                                0 
-                                28 
-                                56 
-                                127 
-                                255 
-                            </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <p class="left">Bsp: auf jede Zahl im Array wird einen Wert addieren</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim data-line-numbers>
-                                let zahlen = [1,3,5,7,9];
-                                let wert = 1;
-                                for (let i = 0; i &lt; zahlen.length; i += 1) {
-                                    zahlen[i] += wert;
-                                }
-                                console.log(zahlen);
-                            </code>
-                        </pre>
-                        <p class="left">Ausgabe:</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim>
-                                [2,4,6,8,10]
-                            </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <p class="left">For-Loops und Arrays:</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim data-line-numbers>
-                                let array = [[255,80], [10,255,20], [4,3,2,1,0]];
-                                for (let i = 0; i &lt; array.length; i += 1) {
-                                    for (let j = 0; j &lt; array[i].length; j += 1){
-                                        console.log('(' + i + "," + j + "): " + array[i][j]);
-                                    }
-                                }
-                            </code>
-                        </pre>
-                        <p class="left">Ausgabe:</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim>
-                                (0,0): 255 
-                                (0,1): 80 
-                                (1,0): 10 
-                                (1,1): 255 
-                                (1,2): 20 
-                                (2,0): 4 
-                                (2,1): 3 
-                                (2,2): 2 
-                                (2,3): 1 
-                                (2,4): 0 
-                            </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <p class="left">Bsp: Gegeben ist ein RGB-Bild als Array. Verringert die Blau-Werte um 50%</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim data-line-numbers>
-                                let img = [
-                                    [[10,20,30], [20,30,40], [30,40,50]],
-                                    [[40,50,60], [60,70,80], [70,80,90]],
-                                    [[80,90,100], [90,100,110], [100,110,120]]
-                                ];
-                                let height = img.length;
-                                let width = img[0].length;
-                                for (let y = 0; y &lt; height; y += 1) {
-                                    for (let x = 0; x &lt; width; x += 1){
-                                        img[y][x][2] /= 2;
-                                    }
-                                }
-                            </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h1>Aufgabe</h1>
-                        <p class="left">Du hast ein Bild mit den Abmessungen width (Breite) und height (Höhe). Teile dieses Bild in Quadrate mit einer Seitenlänge von laenge.</p>
-                        <p class="left" style="font-size: 20px;">
-                            1. Fülle das points Array mit den Koordinaten der oberen linken Ecken der Quadrate. <br>
-                            2. Die erste Ecke (links oben) hat die Koordinaten [0, 0] <br>
-                            3. Die Reihenfolge der Koordinaten spielt keine Rolle</p>
-                        <pre>
-                            <code class="hljs javascript" data-trim data-line-numbers>
-                                let width = 1920;	// Bildbreite
-                                let height = 1080;	// Bildhöhe
-
-                                let laenge = 60;	// Seitenlönge
-                                let points = [];	// Array mit Koordinaten
-
-                                // Schreibe den Code hier, um das 'points' Array zu füllen
-                                // Tipp: verwende Schleifen
-                            </code>
-                        </pre>
-                    </section>
-                </section> <!--end 3.14-->
                 <section>
                     <p class="r-fit-text">FRAGEN?</p>
                     <a href="cap4.html" class="buttonChapter">

@@ -17,7 +17,7 @@ function draw(){
     let offset = offsetSlider.value(); // Get the slider value
 
     for(let x = 0; x <= width; x += 2 * w){
-        let y = height / 2 + 2 * height * Math.sin((frameCount / 60) + (x*offset)/10) / 5;
+        let y = 2/5 * height * Math.sin((frameCount / 60) + (x*offset)/10) + height / 2;
 
         line(x, y, x, height / 2);
         ellipse(x, y, w);
