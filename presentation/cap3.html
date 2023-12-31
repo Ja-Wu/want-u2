@@ -804,6 +804,24 @@
                         </pre>
                     </section>
                     <section>
+                        <p class="left">einfache Farbübergänge mit HSL</p>
+                        <pre>
+                            <code class="hljs javascript" data-trim data-line-numbers>
+                                function setup(){
+                                    createCanvas(400, 400);
+                                    colorMode(HSL, height, 100, 100);
+                                 
+                                    let numOfStripes = 100;
+                                    let stripesHeight = height/numOfStripes;
+                                    for(let y=0; y < height; y += stripesHeight){
+                                        fill(y, 100, 50); 
+                                        rect(0, y, 400, stripesHeight); 
+                                    }
+                                }
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
                         <p class="left">Wir stellen fest:</p>
                         <p class="left">Ein <code>for</code>-Loop generiert eine Reihe von Elementen <br>
                         Idee:</p>
